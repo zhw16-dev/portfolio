@@ -215,7 +215,7 @@ export default function CaseStudyPage() {
               <h4 className="text-sm font-semibold text-slate-500 mb-3 uppercase tracking-wide">Duration</h4>
               <div className="space-y-2">
                 <p className="font-medium text-slate-900">Three Weekends</p>
-                <p className="text-sm text-slate-600">August 2025</p>
+                <p className="text-sm text-slate-600">September 2025</p>
               </div>
             </div>
             <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -813,8 +813,7 @@ export default function CaseStudyPage() {
             
             <div className="prose prose-lg max-w-none mb-12">
               <p className="text-slate-600 leading-relaxed">
-                I wanted to get everything up and running by September, when school starts and sales calls 
-                demand my time. To get there, I had three weekends: the first for user research, then two weekends of 
+                I wanted to get everything up and running by the end of September, when school starts to pick up and parents start calling. To get there, I had three weekends: the first for user research, then two weekends of 
                 development to get the MVP running. Each day taught me an incredible amount about development.
               </p>
             </div>
@@ -1177,26 +1176,12 @@ export default function CaseStudyPage() {
             <div className="bg-sage-green/5 border border-sage-green/20 rounded-lg p-8">
               <h3 className="font-semibold text-slate-900 mb-4">Current State & Next Steps</h3>
               <p className="text-slate-600 leading-relaxed mb-4">
-                The platform now handles our entire operation automatically. We're processing 100+ sessions 
-                per week with minimal intervention, and I can focus on strategic work instead of coordination.
+                The platform now handles our entire operation automatically. We're processing all sessions 
+                with minimal intervention, and I can focus on strategic work instead of coordination.
               </p>
               <p className="text-slate-600 leading-relaxed mb-6">
-                <strong>What's next:</strong> Considering automated scheduling suggestions and calendar integrations 
-                based on three months of usage data. For now, it solves all the core problems and users are happy.
+                <strong>What's next:</strong> With more time, I'd want to fully build a calendar for internal use to replace the need for Calendly entirely. I'm also considering automated scheduling suggestions, integrating email/push notifications, and actual payments support.
               </p>
-              
-              {/* Moonshot Ideas */}
-              <div className="bg-white rounded-lg p-6 border border-sage-green/20">
-                <h4 className="font-medium text-slate-900 mb-3">Moonshot Vision</h4>
-                <p className="text-sm text-slate-600 mb-3">
-                  The potential for AI-powered enhancements is infinite: suggested session matching based on learning 
-                  patterns, predictive scheduling optimization, personalized learning path recommendations.
-                </p>
-                <p className="text-sm text-slate-600">
-                  But right now, the platform solves the fundamental coordination problem that was blocking growth. 
-                  Future features will be enhancements that create additional value, not necessities for basic operation.
-                </p>
-              </div>
             </div>
           </section>
 
@@ -1215,7 +1200,7 @@ export default function CaseStudyPage() {
                 rel="noopener noreferrer"
                 className="bg-sage-green text-white px-6 py-2 rounded hover:bg-sage-green/90 transition-colors inline-flex items-center"
               >
-                View live platform →
+                Live demo coming soon! →
               </a>
             </div>
           </div>
