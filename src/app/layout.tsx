@@ -11,14 +11,14 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
-  title: "Will's Tutoring Platform Case Study",
+  title: "William Zhai | Product Manager",
   description: 'From Spreadsheet Chaos to User-Centered Design - A product management case study showcasing strategic thinking, technical execution, and measurable impact.',
   keywords: 'product management, case study, tutoring platform, Next.js, Supabase, user experience, William Zhai, PM portfolio',
   authors: [{ name: 'William Zhai' }],
   creator: 'William Zhai',
   publisher: 'William Zhai',
   openGraph: {
-    title: "Will's Tutoring Platform Case Study",
+    title: "William Zhai | Product Manager",
     description: 'From Spreadsheet Chaos to User-Centered Design - A product management case study',
     type: 'website',
     locale: 'en_US',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Will's Tutoring Platform Case Study",
+    title: "William Zhai | Product Manager",
     description: 'From Spreadsheet Chaos to User-Centered Design - A product management case study',
   },
   robots: {

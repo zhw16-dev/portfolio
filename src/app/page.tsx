@@ -68,9 +68,7 @@ export default function CaseStudyPage() {
             <h1 className="text-xl font-semibold text-slate-900">WILLIAM ZHAI</h1>
           </div>
           <nav className="hidden md:flex space-x-8">
-            <a href="#" className="text-slate-600 hover:text-slate-900">Work</a>
-            <a href="#" className="text-slate-600 hover:text-slate-900">About</a>
-            <a href="#" className="text-slate-600 hover:text-slate-900">Contact</a>
+            <a href="mailto:wzhai.hba2026@ivey.ca" className="text-slate-600 hover:text-slate-900">Contact Email</a>
           </nav>
         </div>
       </header>
@@ -1211,9 +1209,14 @@ export default function CaseStudyPage() {
               >
                 ← Back to top
               </button>
-              <button className="bg-sage-green text-white px-6 py-2 rounded hover:bg-sage-green/90 transition-colors">
+              <a 
+                href="https://tutoringdemo.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-sage-green text-white px-6 py-2 rounded hover:bg-sage-green/90 transition-colors inline-flex items-center"
+              >
                 View live platform →
-              </button>
+              </a>
             </div>
           </div>
         </main>
