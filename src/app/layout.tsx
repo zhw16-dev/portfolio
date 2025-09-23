@@ -10,13 +10,18 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL('https://wzhai.vercel.app'),
   title: "William Zhai | Product Manager",
   description: 'From Spreadsheet Chaos to User-Centered Design - A product management case study showcasing strategic thinking, technical execution, and measurable impact.',
   keywords: 'product management, case study, tutoring platform, Next.js, Supabase, user experience, William Zhai, PM portfolio',
   authors: [{ name: 'William Zhai' }],
   creator: 'William Zhai',
   publisher: 'William Zhai',
+    icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    },
   openGraph: {
     title: "William Zhai | Product Manager",
     description: 'From Spreadsheet Chaos to User-Centered Design - A product management case study',
