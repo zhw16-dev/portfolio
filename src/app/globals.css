@@ -1,26 +1,79 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+  }
+  
+  * {
+    scroll-margin-top: 2rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .glass-nav {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .floating-blur {
+    backdrop-filter: blur(40px);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, 
+      rgba(168, 198, 162, 0.1) 0%, 
+      rgba(255, 253, 245, 0.8) 35%, 
+      rgba(168, 198, 162, 0.05) 100%);
+  }
+}
+
+@layer utilities {
+  .sage-green { 
+    color: #A8C6A2; 
+  }
+  
+  .bg-sage-green { 
+    background-color: #A8C6A2; 
+  }
+  
+  .text-sage-green { 
+    color: #A8C6A2; 
+  }
+  
+  .from-sage-green { 
+    --tw-gradient-from: #A8C6A2; 
+  }
+  
+  .to-sage-green { 
+    --tw-gradient-to: #A8C6A2; 
+  }
+  
+  .bg-cream { 
+    background-color: #FFFDF5; 
+  }
+  
+  .forest-green { 
+    color: #2E4C3C; 
+  }
 }
