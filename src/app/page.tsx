@@ -1065,7 +1065,7 @@ export default function CaseStudyPage() {
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
                       <span className="text-xl">🚀</span>
                     </div>
-                    <h4 className="font-bold text-green-800">After: Automated Excellence</h4>
+                    <h4 className="font-bold text-green-800">After: Easy and Automated</h4>
                   </div>
                   
                   <div className="space-y-4">
@@ -1119,7 +1119,7 @@ export default function CaseStudyPage() {
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900 mb-3">Solve for your users, not just yourself</h3>
                     <p className="text-sm text-slate-600">
-                      User research revealed completely different priorities than my assumptions. Understanding real behavior 
+                      User research still unearthed different priorities and pain points. Understanding real behavior 
                       patterns beats feature intuition every time.
                     </p>
                   </div>
@@ -1132,10 +1132,10 @@ export default function CaseStudyPage() {
                     <span className="text-sage-green font-semibold text-sm">02</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-3">Constraints drive creative solutions</h3>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-3">Constraints require ruthless prioritization</h3>
                     <p className="text-sm text-slate-600">
-                      Limited time forced ruthless feature prioritization. Constraints don't limit product success—
-                      they force focus on what truly creates user value.
+                      Time and resource constraints are an inevitability. Navigating that and  
+                      focusing on what truly creates user value is key.
                     </p>
                   </div>
                 </div>
@@ -1150,7 +1150,7 @@ export default function CaseStudyPage() {
                     <h3 className="text-lg font-semibold text-slate-900 mb-3">Edge cases define product quality</h3>
                     <p className="text-sm text-slate-600">
                       Users judge your product by how it handles exceptions, not happy path scenarios. 
-                      Edge cases aren't bugs—they're feature requirements that determine user trust.
+                      Edge cases aren't bugs, they're feature requirements that determine user trust.
                     </p>
                   </div>
                 </div>
