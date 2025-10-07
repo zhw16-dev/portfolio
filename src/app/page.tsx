@@ -221,9 +221,8 @@ export default function CaseStudyPage() {
             <div className="bg-white border border-slate-200 rounded-lg p-6">
               <h4 className="text-sm font-semibold text-slate-500 mb-3 uppercase tracking-wide">Impact</h4>
               <div className="space-y-2">
-                <p className="font-medium text-sage-green">90% Time Saved</p>
-                <p className="text-sm text-slate-600">100+ students managed</p>
-                <p className="text-sm text-slate-600">100% user satisfaction</p>
+                <p className="font-medium text-sage-green">95% Time Saved</p>
+                <p className="text-sm text-slate-600">PMF Achieved</p>
               </div>
             </div>
             <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -330,20 +329,18 @@ export default function CaseStudyPage() {
           <section id="overview" className="mb-16">
             <h2 className="text-2xl font-bold text-slate-900 mb-6 uppercase text-xs tracking-wide">Overview</h2>
             <div className="prose prose-lg max-w-none">
-              <p className="text-lg leading-relaxed text-slate-700 mb-6">
-                When I was a kid, my dream job was to be a university professor. I loved learning more than anything, 
-                and thought the best job in the world was one that could support that curiosity. So as any wannabe 
-                professor does, I started tutoring in 9th grade. First with elementary math, then expanding to French, 
-                English, Economics, Biology, Physics, and SAT prep as I progressed through high school.
+              <p className="text-slate-600 leading-relaxed">
+                When I was a kid, my dream job was to be a university professor. I loved learning, and I quickly found that extended to teaching.
+                I started tutoring in the 9th grade, first with elementary school math, then expanding as I progressed through high school myself. 
               </p>
-              <p className="text-lg leading-relaxed text-slate-700 mb-6">
-                By graduation, I'd grown to a point where I had to bring on five tutors to teach ten subjects 
-                for fifty students at once. What started as a simple side project had become something much larger.
+              <p className="text-slate-600 leading-relaxed">
+                By graduation, I'd grown to a point where I had to bring on five tutors to teach
+                 fifty students at once. What started as a simple side project had become something much larger.
               </p>
               <p className="text-slate-600 leading-relaxed">
                 With this extra scale came a coordination nightmare. There was no convenient and cost-effective 
                 solution to manage tutoring operations at this level. For years, I slogged through spreadsheet hell. I manually 
-                matched tutors, coordinated class schedules, managed payments and payouts. By 2025, despite stepping away 
+                matched tutors, coordinated class schedules, managed payments, and fielded calls constantly. By 2025, despite stepping away 
                 from personally teaching classes, I found myself more involved in operations than ever.
               </p>
             </div>
@@ -355,12 +352,13 @@ export default function CaseStudyPage() {
             
             <div className="prose prose-lg max-w-none mb-8">
               <h3 className="text-xl font-semibold text-slate-900 mb-4">
-                What if we could eliminate my biggest blocker: the time spent on coordination?
+                What if I could eliminate my biggest blocker: the time spent on coordination?
               </h3>
               <p className="text-slate-600 leading-relaxed">
                 At the time of starting this project, I was managing 10 tutors and over 100 students with different 
                 schedules, subjects, and payment terms. This created a three-way coordination problem where every 
-                scheduling conflict cascaded into hours of phone calls and manual spreadsheet updates.
+                scheduling conflict cascaded into hours of phone calls and manual spreadsheet updates. With back-to-school, 
+                September was supposed to be the best time for growth and sales, but I found myself putting out fires instead.
               </p>
             </div>
 
@@ -434,15 +432,15 @@ export default function CaseStudyPage() {
                           <div className="space-y-2">
                             <div className="flex items-start">
                               <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Manually match students with available tutors</span>
+                              <span className="text-xs text-slate-600">Track all sessions and data across spreadsheets</span>
                             </div>
                             <div className="flex items-start">
                               <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Track all sessions across 9 different spreadsheets</span>
+                              <span className="text-xs text-slate-600">Calculate and process payments from parents to tutors</span>
                             </div>
                             <div className="flex items-start">
                               <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Process payments, handle cancellations manually</span>
+                              <span className="text-xs text-slate-600">Escalate cancellations and no-shows manually</span>
                             </div>
                           </div>
                         </div>
@@ -476,6 +474,10 @@ export default function CaseStudyPage() {
                               <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
                               <span className="text-xs text-slate-600">Report completed sessions back to me</span>
                             </div>
+                              <div className="flex items-start">
+                              <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
+                              <span className="text-xs text-slate-600">Flag edge cases of cancellations, no-shows</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -495,7 +497,7 @@ export default function CaseStudyPage() {
                   <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-2xl mx-auto">
                     <h4 className="text-lg font-semibold text-red-800 mb-2">The Result</h4>
                     <p className="text-sm text-red-700">
-                      1 overwhelmed founder handling 100+ weekly touchpoints with 3 hours of daily coordination.
+                      1 overwhelmed founder handling 50+ weekly touchpoints with an average of 6 hours on admin tasks weekly.
                     </p>
                   </div>
                 </div>
@@ -509,10 +511,9 @@ export default function CaseStudyPage() {
             
             <div className="prose prose-lg max-w-none mb-8">
               <p className="text-slate-600 leading-relaxed">
-                I knew my business inside and out, but to build something that truly served all users, 
-                I scheduled calls with students and parents, and ran a focus group with my tutors. 
-                I wanted to build a platform based not only on my pain points, but on what features 
-                my users needed most.
+                I knew my business inside and out, but I wanted to make sure I wasn't tunnel visioning on my 
+                own pain points as an admin. I decided to schedule calls with students and parents, and
+                I ran a focus group with my tutors.
               </p>
             </div>
 
@@ -525,25 +526,10 @@ export default function CaseStudyPage() {
                   </div>
                   <h3 className="font-semibold text-slate-900 mb-3">Students & Parents</h3>
                   <p className="text-sm text-slate-600 mb-3">
-                    <span className="font-medium">Top Need:</span> Finding the right tutor match
+                    <span className="font-medium">Top Need:</span> I want to book a tutor on my own time
                   </p>
                   <p className="text-sm text-slate-600">
                     <span className="font-medium">Pain Point:</span> "We never know if a tutor is available until we call"
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl">👨‍🏫</span>
-                  </div>
-                  <h3 className="font-semibold text-slate-900 mb-3">Tutors</h3>
-                  <p className="text-sm text-slate-600 mb-3">
-                    <span className="font-medium">Top Need:</span> Predictable payment schedule
-                  </p>
-                  <p className="text-sm text-slate-600">
-                    <span className="font-medium">Pain Point:</span> "I spend 20 minutes every day updating spreadsheets"
                   </p>
                 </div>
               </div>
@@ -564,6 +550,22 @@ export default function CaseStudyPage() {
               </div>
             </div>
 
+              <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-xl">👨‍🏫</span>
+                  </div>
+                  <h3 className="font-semibold text-slate-900 mb-3">Tutors</h3>
+                  <p className="text-sm text-slate-600 mb-3">
+                    <span className="font-medium">Top Need:</span> It's hard to keep track of my sessions
+                  </p>
+                  <p className="text-sm text-slate-600">
+                    <span className="font-medium">Pain Point:</span> "I spend 20 minutes every day updating spreadsheets"
+                  </p>
+                </div>
+              </div>
+
+
             {/* Key Research Insights */}
             <div className="bg-slate-50 rounded-lg p-6">
               <h3 className="font-semibold text-slate-900 mb-4">Key Research Findings</h3>
@@ -577,7 +579,7 @@ export default function CaseStudyPage() {
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-sage-green rounded-full mr-3 mt-2"></div>
                   <p className="text-slate-600">
-                    <span className="font-medium">Real-time visibility:</span> All stakeholders wanted immediate access to session status and updates without calling or texting
+                    <span className="font-medium">Payment Transparency:</span> Students often didn't know when payment was due, but parents would be busy and forget. The same went for tutor payouts.
                   </p>
                 </div>
               </div>
@@ -603,14 +605,6 @@ export default function CaseStudyPage() {
               <h3 className="font-semibold text-slate-900 mb-6">Core Solution: Single Source of Truth</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-white p-6 rounded border">
-                  <h4 className="font-medium text-sage-green mb-4">For Tutors</h4>
-                  <ul className="text-sm text-slate-600 space-y-2">
-                    <li>• Schedule management & availability</li>
-                    <li>• Session logging and edge case handling</li>
-                    <li>• Payment tracking and history</li>
-                  </ul>
-                </div>
-                <div className="bg-white p-6 rounded border">
                   <h4 className="font-medium text-sage-green mb-4">For Students and Parents</h4>
                   <ul className="text-sm text-slate-600 space-y-2">
                     <li>• Tutor discoverability and profiles</li>
@@ -624,6 +618,14 @@ export default function CaseStudyPage() {
                     <li>• Fully automated booking workflow</li>
                     <li>• Complete operational visibility</li>
                     <li>• Data-driven analytics and insights</li>
+                  </ul>
+                </div>
+                  <div className="bg-white p-6 rounded border">
+                  <h4 className="font-medium text-sage-green mb-4">For Tutors</h4>
+                  <ul className="text-sm text-slate-600 space-y-2">
+                    <li>• Schedule management & availability</li>
+                    <li>• Session logging and edge case handling</li>
+                    <li>• Payment tracking and history</li>
                   </ul>
                 </div>
               </div>
@@ -813,8 +815,7 @@ export default function CaseStudyPage() {
             
             <div className="prose prose-lg max-w-none mb-12">
               <p className="text-slate-600 leading-relaxed">
-                I wanted to get everything up and running by the end of September, when school starts to pick up and parents start calling. To get there, I had three weekends: the first for user research, then two weekends of 
-                development to get the MVP running. Each day taught me an incredible amount about development.
+                I wanted to get everything up and running by the end of September, when school starts to pick up and parents start calling. To get there, I had three weekends. I spent the first on user research, then the following two on development to get the MVP up and running.
               </p>
             </div>
 
@@ -841,12 +842,13 @@ export default function CaseStudyPage() {
                           <div>
                             <h4 className="font-medium text-slate-900 mb-3">Build vs Buy Analysis</h4>
                             <p className="text-sm text-slate-600 mb-4">
-                              Mapped complete user journeys and determined feature requirements. Initially wanted to 
-                              clone Calendly functionality within the platform and integrate payments for full control.
+                              After completing my user interviews, I mapped the complete user journeys and determined what features were
+                              most critical to get started. I initially wnted to clone Calendly functionality within the platform 
+                              and integrate payments for full control. 
                             </p>
                             <p className="text-sm text-slate-600 mb-4">
-                              As a solo developer on a deadline, I chose strategic integrations instead. Using existing 
-                              payment APIs and limiting scope to payment tracking made sense for development speed and security.
+                              As a solo developer on a deadline, I chose to limit the scope instead. Keeping things limited to payment tracking and session management
+                              made sense for development speed and security. 
                             </p>
                             <div className="bg-slate-50 border-l-4 border-sage-green p-4 rounded-r">
                               <p className="text-sm text-sage-green font-medium">
@@ -857,6 +859,9 @@ export default function CaseStudyPage() {
 
                           <div>
                             <h4 className="font-medium text-slate-900 mb-3">Technology Architecture</h4>
+                            <p className="text-sm text-slate-600 mb-4">
+                              I also had to decide what tech stack worked for my needs. I wanted something lightweight but professional, and with a clear path to future scalability.
+                             </p>
                             <div className="grid grid-cols-3 gap-4 mb-4">
                               <div className="text-center p-4 bg-blue-50 rounded-lg">
                                 <div className="font-medium text-slate-900 mb-1">Next.js</div>
@@ -871,9 +876,6 @@ export default function CaseStudyPage() {
                                 <div className="text-xs text-slate-600">Deployment + Hosting</div>
                               </div>
                             </div>
-                            <p className="text-xs text-slate-500">
-                              Chosen for current scale with clear path to future scalability as business grows.
-                            </p>
                           </div>
                         </div>
                       </div>
@@ -907,11 +909,6 @@ export default function CaseStudyPage() {
                               to see student contact info but not payment details, parents needed session history but not 
                               other families' data.
                             </p>
-                            <div className="bg-slate-50 border-l-4 border-sage-green p-4 rounded-r">
-                              <p className="text-sm text-sage-green font-medium">
-                                PM Insight: Security and privacy requirements surface immediately in real user testing. Build these constraints into user stories from day one.
-                              </p>
-                            </div>
                           </div>
 
                           <div>
@@ -922,7 +919,7 @@ export default function CaseStudyPage() {
                             </p>
                             <div className="bg-slate-50 border-l-4 border-sage-green p-4 rounded-r">
                               <p className="text-sm text-sage-green font-medium">
-                                PM Insight: Information architecture decisions directly impact user trust and platform adoption. Over-collecting creates friction; under-collecting limits effectiveness.
+                                Key Learning: Information architecture decisions directly impact user trust and platform adoption. Over-collecting creates friction; under-collecting limits effectiveness.
                               </p>
                             </div>
                           </div>
@@ -949,15 +946,10 @@ export default function CaseStudyPage() {
                           <div>
                             <h4 className="font-medium text-slate-900 mb-3">Session Management & Edge Cases</h4>
                             <p className="text-sm text-slate-600 mb-4">
-                              Implemented core session logging and booking functionality. The complexity came from handling 
-                              real-world scenarios: no-shows, schedule changes, emergency cancellations, makeup sessions. 
+                              Implemented core session logging and booking functionality. Also added a payment tracker based off of the sessions. 
+                              The complexity came from handling real-world scenarios: no-shows, schedule changes, emergency cancellations, makeup sessions. 
                               Each edge case that emerged in testing became a core feature requirement.
                             </p>
-                            <div className="bg-slate-50 border-l-4 border-sage-green p-4 rounded-r">
-                              <p className="text-sm text-sage-green font-medium">
-                                PM Insight: Edge cases aren't exceptions—they're your core user stories. Products succeed based on how gracefully they handle messy reality.
-                              </p>
-                            </div>
                           </div>
 
                           <div>
@@ -969,7 +961,7 @@ export default function CaseStudyPage() {
                             </p>
                             <div className="bg-slate-50 border-l-4 border-sage-green p-4 rounded-r">
                               <p className="text-sm text-sage-green font-medium">
-                                PM Insight: User experience polish determines whether users actually adopt your solution. Budget for UX refinement as a core deliverable.
+                                Key Learning: Edge cases aren't exceptions, they're core to how users perceive the experience. Products succeed based on how gracefully they handle messy reality, and how intuitive they are for users influences actual adoption. 
                               </p>
                             </div>
                           </div>
@@ -988,9 +980,9 @@ export default function CaseStudyPage() {
             
             <div className="prose prose-lg max-w-none mb-8">
               <p className="text-slate-600 leading-relaxed">
-                A month later, I'm processing 100+ sessions weekly with minimal manual intervention. 
-                The transformation freed me to focus on strategic growth instead of getting bogged down 
-                in logistics. All user feedback has been tremendously positive.
+                A month later, the platform is processing sessions beautifully with minimal manual intervention. A follow-up survey sent to students, parents, and tutors revealed 
+                all users have felt like this system was a huge improvement, and it's freed me up to focus on strategic growth instead of getting bogged down in logistics. Having a unified, 
+                single source of truth has reduced the number of escalations regarding payments, and the real-time visibility has driven an uptick in student bookings YoY. 
               </p>
             </div>
 
@@ -999,7 +991,7 @@ export default function CaseStudyPage() {
               <div className="text-center bg-white border border-slate-200 rounded-lg p-6">
                 <div className="text-3xl font-bold text-sage-green mb-2">95%</div>
                 <div className="font-medium text-slate-900 text-sm mb-1">Admin Time Saved</div>
-                <div className="text-xs text-slate-600">From 3 hours to 10 minutes weekly</div>
+                <div className="text-xs text-slate-600">From 6 hours to 15 minutes weekly</div>
               </div>
               <div className="text-center bg-white border border-slate-200 rounded-lg p-6">
                 <div className="text-3xl font-bold text-sage-green mb-2">100%</div>
@@ -1017,85 +1009,6 @@ export default function CaseStudyPage() {
                 <div className="text-xs text-slate-600">Now a single source of truth</div>
               </div>
             </div>
-
-            {/* Before/After Comparison - No Gradient */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-8">
-              <h3 className="text-xl font-semibold text-slate-900 mb-8 text-center">Operational Transformation</h3>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Before */}
-                <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-xl">😔</span>
-                    </div>
-                    <h4 className="font-bold text-red-800">Before: Manual Chaos</h4>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-start">
-                      <div className="w-8 h-8 bg-red-500 rounded text-white text-xs flex items-center justify-center mr-3 mt-1">3h</div>
-                      <div>
-                        <p className="font-medium text-slate-900 text-sm">Weekly Coordination Time</p>
-                        <p className="text-xs text-slate-600">Phone calls, emails, spreadsheet updates</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <div className="w-8 h-8 bg-red-500 rounded text-white text-xs flex items-center justify-center mr-3 mt-1">9</div>
-                      <div>
-                        <p className="font-medium text-slate-900 text-sm">Separate Spreadsheets</p>
-                        <p className="text-xs text-slate-600">Version conflicts, manual errors</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <div className="w-8 h-8 bg-red-500 rounded text-white text-xs flex items-center justify-center mr-3 mt-1">0</div>
-                      <div>
-                        <p className="font-medium text-slate-900 text-sm">Real-time Visibility</p>
-                        <p className="text-xs text-slate-600">No one knew current status</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* After */}
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                      <span className="text-xl">🚀</span>
-                    </div>
-                    <h4 className="font-bold text-green-800">After: Easy and Automated</h4>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-start">
-                      <div className="w-8 h-8 bg-green-500 rounded text-white text-xs flex items-center justify-center mr-3 mt-1">10m</div>
-                      <div>
-                        <p className="font-medium text-slate-900 text-sm">Weekly Coordination Time</p>
-                        <p className="text-xs text-slate-600">Exception handling only</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <div className="w-8 h-8 bg-green-500 rounded text-white text-xs flex items-center justify-center mr-3 mt-1">1</div>
-                      <div>
-                        <p className="font-medium text-slate-900 text-sm">Unified Platform</p>
-                        <p className="text-xs text-slate-600">Single source of truth</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <div className="w-8 h-8 bg-green-500 rounded text-white text-xs flex items-center justify-center mr-3 mt-1">✓</div>
-                      <div>
-                        <p className="font-medium text-slate-900 text-sm">Real-time Visibility</p>
-                        <p className="text-xs text-slate-600">All stakeholders stay updated</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </section>
 
           {/* Reflection Section */}
@@ -1104,8 +1017,25 @@ export default function CaseStudyPage() {
             
             <div className="prose prose-lg max-w-none mb-8">
               <p className="text-slate-600 leading-relaxed">
-                This project taught me that the best products solve problems you deeply understand. 
-                Having skin in the game made every design decision feel consequential.
+                As much as this project helped my business, it taught me even more. Having skin in the game made every design decision feel consequential, and not having a team to support me forced me to grow beyond my work experiences as solely a PM, a consultant, a founder. It turned me into a builder.
+              </p>
+            </div>
+
+             <div className="prose prose-lg max-w-none mb-8">
+              <p className="text-slate-600 leading-relaxed">
+                I started learning development through the Odin Project with a goal of communicating better with engineering teams. But there's a massive difference between understanding concepts and actually shipping code. This project threw me into the deep end: pushing to Git, debugging obscure errors at 2am, wrestling with database relationships I barely understood. I went from not fully grasping how the data layer connected to the UI to implementing Row Level Security policies and managing database migrations. Claude Code was genuinely impressive here: it helped me understand not just what to fix, but why things broke. Debugging became a teaching moment every time.
+              </p>
+            </div>
+
+            <div className="prose prose-lg max-w-none mb-8">
+              <p className="text-slate-600 leading-relaxed">
+              The vibecoding approach accelerated everything. Replit and Loveable let me prototype ideas in minutes instead of hours. When something didn't work, I could iterate immediately with real code, not wireframes. I'd make a change, test it with actual users, get feedback, and ship fixes the same day. That tight feedback loop taught me more in three weekends than months of tutorials would have.
+              </p>
+            </div>
+
+            <div className="prose prose-lg max-w-none mb-8">
+              <p className="text-slate-600 leading-relaxed">
+              What really stuck with me: AI makes it so easy to just do things. I can ship code. I can solve real problems. I can make my busines better today than it was yesterday. It was an incredible feeling to push an improvement live, think “I did that”, and immediately see users benefit from it. The gap between "I wish this worked differently" and "I fixed it" collapsed to hours instead of weeks. Understanding this made me a better PM, without a doubt. 
               </p>
             </div>
 
@@ -1162,25 +1092,47 @@ export default function CaseStudyPage() {
                     <span className="text-white font-semibold text-sm">04</span>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-3">Build analytics from day one</h3>
+                    <h3 className="text-lg font-semibold text-slate-900 mb-3">Ship fast, learn faster</h3>
                     <p className="text-sm text-slate-600">
-                      Data-driven product decisions require instrumentation as a core feature, not an afterthought. 
-                      Every user interaction should teach you something about product-market fit.
+                      Rapidly iterating with real users taught me more in three weekends than months of planning ever could. A working product today helps users more than perfect code next month. 
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Current State & Vision */}
-            <div className="bg-sage-green/5 border border-sage-green/20 rounded-lg p-8">
-              <h3 className="font-semibold text-slate-900 mb-4">Current State & Next Steps</h3>
-              <p className="text-slate-600 leading-relaxed mb-4">
-                The platform now handles our entire operation automatically. We're processing all sessions 
-                with minimal intervention, and I can focus on strategic work instead of coordination.
-              </p>
-              <p className="text-slate-600 leading-relaxed mb-6">
-                <strong>What's next:</strong> With more time, I'd want to fully build a calendar for internal use to replace the need for Calendly entirely. I'm also considering automated scheduling suggestions, integrating email/push notifications, and actual payments support.
+            {/* Next Steps */}
+            <div className="bg-white border border-slate-200 rounded-lg p-8">
+              <h3 className="font-semibold text-slate-900 mb-6">Next Steps</h3>
+              <p className="text-slate-600 mb-4">With more time, I'd:</p>
+              <ul className="space-y-3 text-slate-600 mb-6">
+                <li className="flex items-start">
+                  <span className="text-sage-green mr-3 mt-1">•</span>
+                  <span><strong>Replace Calendly entirely</strong> — build a native calendar that integrates directly with our workflows instead of relying on external tools</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-sage-green mr-3 mt-1">•</span>
+                  <span><strong>Make payments seamless</strong> — move from tracking to actual payment processing, removing manual Venmo/e-transfer coordination</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-sage-green mr-3 mt-1">•</span>
+                  <span><strong>Add smart recommendations</strong> — use booking data to suggest optimal tutors based on subject, availability, and student learning style</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-sage-green mr-3 mt-1">•</span>
+                  <span><strong>Enable intelligent scheduling</strong> — recommend session times based on historical patterns and tutor/student availability</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-sage-green mr-3 mt-1">•</span>
+                  <span><strong>Build education features</strong> — add progress tracking, curriculum planning, and learning analytics to turn this from an operations tool into a comprehensive education platform</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-sage-green mr-3 mt-1">•</span>
+                  <span><strong>Implement real-time notifications</strong> — email and push alerts for schedule changes, payment reminders, and session confirmations</span>
+                </li>
+              </ul>
+              <p className="text-slate-600 italic">
+                I'm also working on a demo version! Stay tuned.
               </p>
             </div>
           </section>
