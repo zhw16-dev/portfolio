@@ -326,25 +326,25 @@ export default function CaseStudyPage() {
           </div>
 
           {/* Overview Section */}
-          <section id="overview" className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6 uppercase text-xs tracking-wide">Overview</h2>
-            <div className="prose prose-lg max-w-none">
-              <p className="text-slate-600 leading-relaxed">
-                When I was a kid, my dream job was to be a university professor. I loved learning, and I quickly found that extended to teaching.
-                I started tutoring in the 9th grade, first with elementary school math, then expanding as I progressed through high school myself. 
-              </p>
-              <p className="text-slate-600 leading-relaxed">
-                By graduation, I'd grown to a point where I had to bring on five tutors to teach
-                 fifty students at once. What started as a simple side project had become something much larger.
-              </p>
-              <p className="text-slate-600 leading-relaxed">
-                With this extra scale came a coordination nightmare. There was no convenient and cost-effective 
-                solution to manage tutoring operations at this level. For years, I slogged through spreadsheet hell. I manually 
-                matched tutors, coordinated class schedules, managed payments, and fielded calls constantly. By 2025, despite stepping away 
-                from personally teaching classes, I found myself more involved in operations than ever.
-              </p>
-            </div>
-          </section>
+<section id="overview" className="mb-16">
+  <h2 className="text-2xl font-bold text-slate-900 mb-6 uppercase text-xs tracking-wide">Overview</h2>
+  <div className="prose prose-lg max-w-none">
+    <p className="text-slate-600 leading-relaxed mb-6">
+      When I was a kid, my dream job was to be a university professor. I loved learning, and I quickly found that extended to teaching.
+      I started tutoring in the 9th grade, first with elementary school math, then expanding as I progressed through high school myself. 
+    </p>
+    <p className="text-slate-600 leading-relaxed mb-6">
+      By graduation, I'd grown to a point where I had to bring on five tutors to teach
+       fifty students at once. What started as a simple side project had become something much larger.
+    </p>
+    <p className="text-slate-600 leading-relaxed">
+      With this extra scale came a coordination nightmare. There was no convenient and cost-effective 
+      solution to manage tutoring operations at this level. For years, I slogged through spreadsheet hell. I manually 
+      matched tutors, coordinated class schedules, managed payments, and fielded calls constantly. By 2025, despite stepping away 
+      from personally teaching classes, I found myself more involved in operations than ever.
+    </p>
+  </div>
+</section>
 
           {/* Context Section */}
           <section id="context" className="mb-16">
@@ -548,7 +548,6 @@ export default function CaseStudyPage() {
                   </p>
                 </div>
               </div>
-            </div>
 
               <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow">
                 <div className="text-center">
@@ -564,7 +563,7 @@ export default function CaseStudyPage() {
                   </p>
                 </div>
               </div>
-
+            </div>
 
             {/* Key Research Insights */}
             <div className="bg-slate-50 rounded-lg p-6">
