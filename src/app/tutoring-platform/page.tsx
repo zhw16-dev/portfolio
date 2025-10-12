@@ -59,7 +59,7 @@ export default function TutoringPlatformPage() {
     {/* Header */}
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrollY > 50 ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-white border-b border-slate-200'
-    }`}>
+      }`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex justify-between items-center">
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
@@ -103,9 +103,11 @@ export default function TutoringPlatformPage() {
       {/* Case Study Section */}
       <div className="flex pt-20">
         {/* Sidebar Navigation */}
-        <aside className={`hidden lg:block w-64 p-6 sticky top-0 h-screen transition-all duration-300 ${
-          showSidebar ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
-        }`}>
+    <aside className="hidden xl:block xl:w-64 xl:fixed xl:left-0 xl:top-24 xl:h-[calc(100vh-6rem)] xl:z-40">
+      <div className={`transition-all duration-300 ${
+        showSidebar ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+      }`}>
+        <div className="p-6">
           <div className="mb-6">
             <Link 
               href="/"
@@ -129,7 +131,9 @@ export default function TutoringPlatformPage() {
               </button>
             ))}
           </nav>
-        </aside>
+        </div>
+      </div>
+    </aside>
 
         {/* Main Case Study Content */}
         <main className="flex-1 max-w-5xl mx-auto p-6 lg:p-12">
@@ -1089,12 +1093,12 @@ export default function TutoringPlatformPage() {
           {/* Footer */}
           <div className="border-t border-slate-200 pt-8">
             <div className="flex justify-between items-center">
-              <button 
-                onClick={() => document.getElementById('about-me')?.scrollIntoView({ behavior: 'smooth' })}
-                className="text-slate-600 hover:text-slate-900 flex items-center"
-              >
-                ← Back to top
-              </button>
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="text-slate-600 hover:text-slate-900 flex items-center"
+            >
+              ← Back to top
+            </button>
               <a 
                 href="https://tutoringdemo.vercel.app"
                 target="_blank"
