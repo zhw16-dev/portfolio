@@ -220,12 +220,12 @@ export default function LandingPage() {
                       Case Study
                     </span>
                     <span className="text-xs font-bold text-white uppercase tracking-wider bg-white/20 px-3 py-1 rounded-full">
-                      2024
+                      2025
                     </span>
                   </div>
                   
                   <h3 className="text-3xl font-bold text-white mb-3 leading-tight">
-                    Tutoring Platform: From Spreadsheet Chaos to Scalable Solution
+                    An All-In-One Solution for my Tutoring Business
                   </h3>
                   
                   <p className="text-white/90 mb-6">

@@ -69,6 +69,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </head>
       <body className={`${inter.className} antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   )
