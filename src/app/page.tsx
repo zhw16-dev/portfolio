@@ -180,7 +180,7 @@ export default function LandingPage() {
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
               Case Studies & Projects
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl">
+            <p className="text-xl text-slate-600 max-w-4xl">
               Deep dives into products I&apos;ve built, problems I&apos;ve solved, and lessons I&apos;ve learned.
             </p>
           </div>
