@@ -88,7 +88,7 @@ export default function LandingPage() {
               </h1>
               
               <p className="text-xl text-slate-600 leading-relaxed mb-8">
-                Product manager and strategic thinker who bridges business strategy with technical execution.
+                Product manager and strategic thinker who bridges business strategy with user impact.
               </p>
 
               <div className="flex flex-wrap gap-4">
