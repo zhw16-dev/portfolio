@@ -211,7 +211,7 @@ export default function LandingPage() {
                   </div>
                   
                   <h3 className="text-3xl font-bold text-white mb-3 leading-tight">
-                    Solving Operations for my Tutoring Business
+                    Solving Tutoring Business Operations
                   </h3>
                   
                   <p className="text-white/90 mb-6">
