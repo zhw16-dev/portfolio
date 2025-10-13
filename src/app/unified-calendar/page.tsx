@@ -166,7 +166,7 @@ export default function UnifiedCalendarPage() {
               <h4 className="text-sm font-semibold text-slate-500 mb-3 uppercase tracking-wide">Duration</h4>
               <div className="space-y-2">
                 <p className="font-medium text-slate-900">One Day Sprint</p>
-                <p className="text-sm text-slate-600">October 2024</p>
+                <p className="text-sm text-slate-600">October 2025</p>
               </div>
             </div>
             <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -288,7 +288,17 @@ export default function UnifiedCalendarPage() {
                 </div>
               </div>
             </div>
+
+            {/* Calendar Demo Mockup */}
+            <div className="max-w-4xl mx-auto">
+              {/* Add this caption */}
+              <p className="text-sm italic text-slate-600 mt-4 text-center">
+                Note: This is a design mockup for demonstration purposes.
+              </p>
+            </div>
           </div>
+
+
 
           {/* Overview Section */}
           <section id="overview" className="mb-16">
