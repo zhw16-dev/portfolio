@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://wzhai.vercel.app'),
   title: "William Zhai | Product Manager",
-  description: 'From Spreadsheet Chaos to User-Centered Design - A product management case study showcasing strategic thinking, technical execution, and measurable impact.',
+  description: 'William Zhai - Product Management Portfolio',
   keywords: 'product management, case study, tutoring platform, Next.js, Supabase, user experience, William Zhai, PM portfolio',
   authors: [{ name: 'William Zhai' }],
   creator: 'William Zhai',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     },
   openGraph: {
     title: "William Zhai | Product Manager",
-    description: 'From Spreadsheet Chaos to User-Centered Design - A product management case study',
+    description: 'William Zhai - Product Management Portfolio',
     type: 'website',
     locale: 'en_US',
     siteName: "William Zhai's Portfolio",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "William Zhai | Product Manager",
-    description: 'From Spreadsheet Chaos to User-Centered Design - A product management case study',
+    description: 'William Zhai - Product Management Portfolio',
   },
   robots: {
     index: true,
