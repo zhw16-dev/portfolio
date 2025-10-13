@@ -190,34 +190,20 @@ export default function LandingPage() {
             {/* Featured: Tutoring Platform */}
             <Link href="/tutoring-platform" className="group">
               <div className="relative rounded-3xl overflow-hidden h-[500px] flex flex-col justify-end p-8 transition-all duration-300 hover:scale-[1.02] border-2 border-sage-green">
-                {/* Abstract Geometric Background */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                  <svg className="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Overlapping circles suggesting organization */}
-                    <circle cx="150" cy="150" r="80" stroke="#2E4C3C" strokeWidth="2"/>
-                    <circle cx="250" cy="150" r="60" stroke="#4A6B5C" strokeWidth="2"/>
-                    <circle cx="200" cy="250" r="70" stroke="#3A5C4C" strokeWidth="2"/>
-                    {/* Connecting lines */}
-                    <line x1="150" y1="150" x2="250" y2="150" stroke="#4A6B5C" strokeWidth="1" strokeDasharray="4 4"/>
-                    <line x1="250" y1="150" x2="200" y2="250" stroke="#4A6B5C" strokeWidth="1" strokeDasharray="4 4"/>
-                    <line x1="200" y1="250" x2="150" y2="150" stroke="#4A6B5C" strokeWidth="1" strokeDasharray="4 4"/>
-                  </svg>
-                </div>
-
+              {/* Tutoring Platform Image */}
+              <img 
+                src="/images/tutoring-platform.svg"
+                alt="Tutoring Platform Illustration"
+                className="absolute inset-0 w-full h-full object-contain p-12"
+              />
                 {/* Sage Green Overlay */}
                 <div className="absolute inset-0 bg-sage-green opacity-85"></div>
-
-                {/* Subtle Pattern Overlay */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-10 right-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-                  <div className="absolute bottom-10 left-10 w-48 h-48 bg-white rounded-full blur-3xl"></div>
-                </div>
 
                 {/* Content */}
                 <div className="relative z-10">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="text-xs font-bold text-white uppercase tracking-wider bg-white/20 px-3 py-1 rounded-full">
-                      Case Study
+                      Project
                     </span>
                     <span className="text-xs font-bold text-white uppercase tracking-wider bg-white/20 px-3 py-1 rounded-full">
                       2025
@@ -233,7 +219,7 @@ export default function LandingPage() {
                   </p>
 
                   <div className="flex items-center gap-2 text-white font-medium group-hover:gap-3 transition-all">
-                    <span>Read case study</span>
+                    <span>Read project write-up</span>
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
@@ -242,7 +228,51 @@ export default function LandingPage() {
               </div>
             </Link>
 
-            {/* Coming Soon */}
+            {/* Unified Calendar */}
+            <Link href="/unified-calendar" className="group">
+              <div className="relative rounded-3xl overflow-hidden h-[500px] flex flex-col justify-end p-8 transition-all duration-300 hover:scale-[1.02] border-2 border-sage-green">
+              {/* Unified Calendar Image */}
+              <img 
+                src="/images/unified-calendar.svg"
+                alt="Unified Calendar Illustration"
+                className="absolute inset-0 w-full h-full object-contain p-12"
+              />
+
+                {/* Sage Green Overlay */}
+                <div className="absolute inset-0 bg-sage-green opacity-85"></div>
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="text-xs font-bold text-white uppercase tracking-wider bg-white/20 px-3 py-1 rounded-full">
+                      Project
+                    </span>
+                    <span className="text-xs font-bold text-white uppercase tracking-wider bg-white/20 px-3 py-1 rounded-full">
+                      2025
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-3xl font-bold text-white mb-3 leading-tight">
+                    Building a Unified Calendar in a Day
+                  </h3>
+                  
+                  <p className="text-white/90 mb-6">
+                    A privacy-first calendar aggregator that solved my app-switching nightmare by unifying 4 calendars with zero authentication required
+                  </p>
+
+                  <div className="flex items-center gap-2 text-white font-medium group-hover:gap-3 transition-all">
+                    <span>Read project write-up</span>
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Coming Soon */}
+          <div className="mt-8 animate-fade-in-up delay-300">
             <div className="relative bg-slate-100 rounded-3xl overflow-hidden h-[500px] flex flex-col justify-end p-8 border-2 border-dashed border-slate-300">
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-4">
@@ -261,8 +291,10 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
+
         </div>
       </section>
+
     </div>
   )
 }
