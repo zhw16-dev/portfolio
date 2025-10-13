@@ -293,7 +293,7 @@ export default function UnifiedCalendarPage() {
             <div className="max-w-4xl mx-auto">
               {/* Add this caption */}
               <p className="text-sm italic text-slate-600 mt-4 text-center">
-                Note: This is a design mockup for demonstration purposes.
+                Note: This view is an illustrative mockup. The actual app can be demo'd at <a href="https://unified-calendar.vercel.app" className="text-sage-green hover:underline">unified-calendar.vercel.app</a>
               </p>
             </div>
           </div>
