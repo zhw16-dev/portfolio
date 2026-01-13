@@ -25,7 +25,7 @@ const caseStudies = [
     title: 'Project 3',
     year: '2025',
     href: '#',
-    bgColor: 'bg-[#5a7c6f]', // mid-tone green
+    bgColor: 'bg-[#5a7c6f]',
     textColor: 'text-white',
   },
   {
@@ -51,16 +51,15 @@ export default function LandingPage() {
   // Stacking - much more vertical spread
   // Position 0 = front, Position 3 = back (most peeking)
   const stackPositions = [
-    { rotation: 0, offsetX: 0, offsetY: 0 },          // Position 0 - front
-    { rotation: 5, offsetX: 10, offsetY: -85 },       // Position 1
-    { rotation: -4, offsetX: -7, offsetY: -170 },     // Position 2
-    { rotation: 6, offsetX: 12, offsetY: -255 },      // Position 3 - back
+    { rotation: 0, offsetX: 0, offsetY: 0 },
+    { rotation: 5, offsetX: 10, offsetY: -85 },
+    { rotation: -4, offsetX: -7, offsetY: -170 },
+    { rotation: 6, offsetX: 12, offsetY: -255 },
   ]
 
   // Get which position a card is in based on rotation offset
   const getCardPosition = (cardIndex: number) => {
     const totalCards = caseStudies.length
-    // Card's position in the stack (0 = front, 3 = back)
     const position = (cardIndex - rotationOffset + totalCards) % totalCards
     return position
   }
@@ -72,7 +71,7 @@ export default function LandingPage() {
     
     return {
       transform: `rotate(${pos.rotation}deg) translate(${pos.offsetX}px, ${pos.offsetY}px)`,
-      zIndex: 100 - position, // Front card (position 0) has highest z-index
+      zIndex: 100 - position,
     }
   }
 
@@ -168,7 +167,7 @@ export default function LandingPage() {
             
             {/* Left Column: Hero + Info Cards */}
             <div className="lg:sticky lg:top-32">
-              {/* Hero Text - aligned with cards below */}
+              {/* Hero Text */}
               <div className="mb-10 animate-fade-in-up pl-6">
                 <h1 className="text-4xl lg:text-5xl font-bold text-slate-600 leading-[1.2]">
                   Hi, I&apos;m <span className="text-sage-green">Will!</span>
@@ -245,60 +244,20 @@ export default function LandingPage() {
 
             {/* Right Column: Stacked Case Study Cards */}
             <div>
-              {/* Mobile-only header */}
+              {/* Section header - mobile only */}
               <div className="lg:hidden text-xs font-semibold text-slate-500 uppercase tracking-wider mb-6">
                 Case Studies
               </div>
               
-              {/* Mobile: Simple vertical stack */}
-              <div className="lg:hidden space-y-6 animate-fade-in-up delay-300">
-                {caseStudies.map((study) => (
-                  <Link 
-                    key={study.id} 
-                    href={study.href} 
-                    onClick={(e) => study.href === '#' && e.preventDefault()}
-                    className="block group"
-                  >
-                    <div 
-                      className={`${study.bgColor} rounded-2xl p-6 aspect-[3/4] max-w-[280px] flex flex-col justify-between transition-transform duration-300 hover:scale-[1.02]`}
-                      style={{
-                        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 12px 24px -8px rgba(0, 0, 0, 0.3)',
-                      }}
-                    >
-                      <div>
-                        <h3 className={`text-xl font-bold ${study.textColor} leading-tight`}>
-                          {study.title}
-                        </h3>
-                      </div>
-                      <div>
-                        {study.year && (
-                          <span className={`text-xs font-medium ${study.textColor} opacity-70 uppercase tracking-wider`}>
-                            Project · {study.year}
-                          </span>
-                        )}
-                        {study.href !== '#' && (
-                          <div className={`flex items-center gap-2 ${study.textColor} font-medium group-hover:gap-3 transition-all mt-4`}>
-                            <span>Read Write-Up</span>
-                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </Link>
-                ))}$
-              </div>
-
-              {/* Desktop: Stacked cards with dot navigation */}
-              <div className="hidden lg:block animate-fade-in-up delay-300">
-                {/* Card Stack Container - extra top padding for cards peeking up */}
+              {/* Stacked cards - all screen sizes */}
+              <div className="animate-fade-in-up delay-300">
+                {/* Card Stack Container */}
                 <div className="flex justify-center pt-64 pb-4">
                   <div 
                     className="relative"
                     style={{ 
-                      width: '280px', 
-                      height: '373px', // 280 * 4/3
+                      width: 'min(280px, 70vw)', 
+                      height: 'min(373px, 93vw)',
                     }}
                   >
                     {caseStudies.map((study, index) => {
@@ -324,7 +283,6 @@ export default function LandingPage() {
                             const el = e.currentTarget as HTMLElement
                             const position = getCardPosition(index)
                             el.style.transform = `${style.transform} scale(1.03)`
-                            // Only front card (position 0) pops to top z-index
                             if (position === 0) {
                               el.style.zIndex = '150'
                             }
@@ -347,7 +305,7 @@ export default function LandingPage() {
                               boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 12px 24px -8px rgba(0, 0, 0, 0.3)',
                             }}
                           >
-                            {/* Top: Title (peeks out) */}
+                            {/* Top: Title */}
                             <div>
                               <h3 className={`text-xl font-bold ${study.textColor} leading-tight`}>
                                 {study.title}
