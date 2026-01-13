@@ -67,7 +67,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#A8C6A2" />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased`} style={{ zoom: 1.1 }}>
         {children}
         <Analytics />
       </body>

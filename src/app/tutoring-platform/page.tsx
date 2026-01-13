@@ -4,27 +4,21 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function TutoringPlatformPage() {
-  const [activeSection, setActiveSection] = useState('overview')
+  const [activeSection, setActiveSection] = useState('context')
   const [showSidebar, setShowSidebar] = useState(false)
   const [scrollY, setScrollY] = useState(0)
 
-  // Smooth scrolling function
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      })
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
 
-  // Track scroll position and active section
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY)
-      // Update active section
-      const sections = ['overview', 'context', 'research', 'solution', 'execution', 'results', 'reflection']
+      const sections = ['context', 'solution', 'execution', 'reflection']
       const scrollPosition = window.scrollY + 200
 
       for (const section of sections) {
@@ -35,8 +29,6 @@ export default function TutoringPlatformPage() {
           break
         }
       }
-      
-      // Show sidebar after scrolling a bit
       setShowSidebar(window.scrollY > 100)
     }
 
@@ -45,97 +37,106 @@ export default function TutoringPlatformPage() {
   }, [])
 
   const navigationItems = [
-    { id: 'overview', label: 'Overview' },
     { id: 'context', label: 'Context' },
-    { id: 'research', label: 'Research' },
     { id: 'solution', label: 'Solution' },
     { id: 'execution', label: 'Execution' },
-    { id: 'results', label: 'Results' },
     { id: 'reflection', label: 'Reflection' }
   ]
 
   return (
     <div className="min-h-screen bg-white">
-    {/* Header */}
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrollY > 50 ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-white border-b border-slate-200'
+      {/* Header */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrollY > 50 ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-white border-b border-slate-200'
       }`}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex justify-between items-center">
-        <div className="flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="w-2 h-2 bg-sage-green rounded-full"></div>
-            <h1 className="text-lg font-semibold text-slate-900 tracking-tight">WILLIAM ZHAI</h1>
-          </Link>
-          <div className="flex items-center gap-3">
-            <a 
-              href="https://github.com/zhw16-dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-400 hover:text-slate-600 transition-colors"
-              aria-label="GitHub"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-              </svg>
-            </a>
-            <a 
-              href="https://www.linkedin.com/in/wzhai/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-400 hover:text-slate-600 transition-colors"
-              aria-label="LinkedIn"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </a>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex justify-between items-center">
+          <div className="flex items-center gap-4">
+            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <div className="w-2 h-2 bg-sage-green rounded-full"></div>
+              <h1 className="text-lg font-semibold text-slate-900 tracking-tight">WILLIAM ZHAI</h1>
+            </Link>
+            <div className="flex items-center gap-3">
+              <a 
+                href="https://github.com/zhw16-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-slate-600 transition-colors"
+                aria-label="GitHub"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                </svg>
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/wzhai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-slate-600 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <a 
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-slate-600 transition-colors flex items-center gap-1.5"
+                aria-label="Resume"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span className="text-sm font-medium">Resume</span>
+              </a>
+            </div>
           </div>
+          <a 
+            href="mailto:wzhai.hba2026@ivey.ca" 
+            className="text-sm text-slate-600 hover:text-sage-green transition-colors"
+          >
+            Get in touch →
+          </a>
         </div>
-        <a 
-          href="mailto:wzhai.hba2026@ivey.ca" 
-          className="text-sm text-slate-600 hover:text-sage-green transition-colors"
-        >
-          Get in touch →
-        </a>
-      </div>
-    </header>
+      </header>
 
       {/* Case Study Section */}
-      <div className="flex pt-20">
+      <div className="flex pt-28">
         {/* Sidebar Navigation */}
-    <aside className="hidden xl:block xl:w-64 xl:fixed xl:left-0 xl:top-24 xl:h-[calc(100vh-6rem)] xl:z-40">
-      <div className={`transition-all duration-300 ${
-        showSidebar ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-      }`}>
-        <div className="p-6">
-          <div className="mb-6">
-            <Link 
-              href="/"
-              className="text-sm text-slate-500 hover:text-slate-700 flex items-center"
-            >
-              ← Back to Portfolio
-            </Link>
+        <aside className="hidden xl:block xl:w-64 xl:fixed xl:left-0 xl:top-24 xl:h-[calc(100vh-6rem)] xl:z-40">
+          <div className={`transition-all duration-300 ${
+            showSidebar ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+          }`}>
+            <div className="p-6">
+              <div className="mb-6">
+                <Link 
+                  href="/"
+                  className="text-sm text-slate-500 hover:text-slate-700 flex items-center"
+                >
+                  ← Back to Portfolio
+                </Link>
+              </div>
+              <nav className="space-y-2">
+                {navigationItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`block w-full text-left px-3 py-2 text-sm rounded transition-colors ${
+                      activeSection === item.id 
+                        ? 'bg-sage-green text-white' 
+                        : 'text-slate-600 hover:bg-slate-100'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+            </div>
           </div>
-          <nav className="space-y-2">
-            {navigationItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-3 py-2 text-sm rounded transition-colors ${
-                  activeSection === item.id 
-                    ? 'bg-sage-green text-white' 
-                    : 'text-slate-600 hover:bg-slate-100'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </div>
-    </aside>
+        </aside>
 
-        {/* Main Case Study Content */}
+        {/* Main Content */}
         <main className="flex-1 max-w-5xl mx-auto p-6 lg:p-12">
           {/* Case Study Header */}
           <div className="mb-16">
@@ -147,965 +148,373 @@ export default function TutoringPlatformPage() {
                 <span className="text-sm text-slate-500">2025</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                How I vibe-coded my tutoring business from 
-                <span className="text-sage-green"> spreadsheet chaos</span> into a scalable solution
+                Can I Make My Tutoring Business
+                <span className="text-sage-green"> Run Itself?</span>
               </h1>
               <p className="text-xl text-slate-600 leading-relaxed max-w-3xl">
-                The full product cycle, from ideation and prototyping to testing, development, 
-                and full-scale launch serving 100+ students.
+                Building a role-based platform to eliminate the operational chaos of managing 10 tutors and 100+ students.
               </p>
             </div>
-          </div>
 
-          {/* Project Details in Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <div className="bg-white border border-slate-200 rounded-lg p-6">
-              <h4 className="text-sm font-semibold text-slate-500 mb-3 uppercase tracking-wide">My Role</h4>
-              <div className="space-y-2">
-                <p className="font-medium text-slate-900">Troubled Founder</p>
-                <p className="text-sm text-slate-600">Product Owner</p>
+            {/* Project Metadata */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+              <div className="bg-white border border-slate-200 rounded-lg p-5">
+                <h4 className="text-xs font-semibold text-slate-500 mb-2 uppercase tracking-wide">Role</h4>
+                <p className="font-medium text-slate-900">Founder</p>
+                <p className="text-sm text-slate-600">Product & Engineering</p>
               </div>
-            </div>
-            <div className="bg-white border border-slate-200 rounded-lg p-6">
-              <h4 className="text-sm font-semibold text-slate-500 mb-3 uppercase tracking-wide">Duration</h4>
-              <div className="space-y-2">
-                <p className="font-medium text-slate-900">Three Weekends</p>
+              <div className="bg-white border border-slate-200 rounded-lg p-5">
+                <h4 className="text-xs font-semibold text-slate-500 mb-2 uppercase tracking-wide">Timeline</h4>
+                <p className="font-medium text-slate-900">3 Weekends</p>
                 <p className="text-sm text-slate-600">September 2025</p>
               </div>
-            </div>
-            <div className="bg-white border border-slate-200 rounded-lg p-6">
-              <h4 className="text-sm font-semibold text-slate-500 mb-3 uppercase tracking-wide">Impact</h4>
-              <div className="space-y-2">
-                <p className="font-medium text-slate-900">95% Time Saved</p>
-                <p className="text-sm text-slate-600">PMF Achieved</p>
+              <div className="bg-white border border-slate-200 rounded-lg p-5">
+                <h4 className="text-xs font-semibold text-slate-500 mb-2 uppercase tracking-wide">Stack</h4>
+                <p className="font-medium text-slate-900">Next.js + Supabase</p>
+                <p className="text-sm text-slate-600">Deployed on Vercel</p>
               </div>
-            </div>
-            <div className="bg-white border border-slate-200 rounded-lg p-6">
-              <h4 className="text-sm font-semibold text-slate-500 mb-3 uppercase tracking-wide">Tech Stack</h4>
-              <div className="space-y-2">
-                <p className="font-medium text-slate-900">Next.js</p>
-                <p className="text-sm text-slate-600">Supabase</p>
+              <div className="bg-white border border-slate-200 rounded-lg p-5">
+                <h4 className="text-xs font-semibold text-slate-500 mb-2 uppercase tracking-wide">Outcome</h4>
+                <p className="font-medium text-slate-900">95% Time Saved</p>
+                <p className="text-sm text-slate-600">6 hrs → 15 min weekly</p>
               </div>
             </div>
           </div>
 
-          {/* Project Showcase */}
-          <div className="bg-slate-50 rounded-2xl p-8 lg:p-12 mb-16">
-            <div className="text-center mb-8">
-              <h3 className="text-lg font-medium text-slate-900 mb-2">Platform Overview</h3>
-              <p className="text-sm text-slate-600">Live dashboard showing current operations</p>
-            </div>
+          {/* CONTEXT */}
+          <section id="context" className="mb-20 scroll-mt-32">
+            <h2 className="text-xs font-semibold text-sage-green uppercase tracking-wide mb-6">Context</h2>
             
-            {/* Interactive Dashboard Demo */}
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-6">
+            <div className="prose prose-lg max-w-none mb-10">
+              <p className="text-slate-600 leading-relaxed mb-6">
+                I started tutoring in 9th grade. By the time I graduated, I was managing 10 tutors 
+                and over 100 students. What started as a side hustle had become a real business.
+              </p>
+              <p className="text-slate-600 leading-relaxed mb-6">
+                With that scale came a coordination nightmare. I was manually matching tutors to students, 
+                coordinating schedules across time zones, tracking payments in spreadsheets, and fielding 
+                calls constantly. By 2025, despite stepping back from teaching, I was spending 6+ hours 
+                a week on pure operations.
+              </p>
+              <p className="text-slate-600 leading-relaxed">
+                September was supposed to be growth season. Instead, I was drowning in logistics.
+              </p>
+            </div>
+
+            {/* Simplified 3-Column Visual */}
+            <div className="bg-slate-50 rounded-xl p-8 mb-8">
+              <h3 className="text-sm font-semibold text-slate-900 mb-6 text-center">The Coordination Problem</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {/* Students/Parents */}
+                <div className="bg-white rounded-lg p-5 border border-slate-200">
+                  <h4 className="font-medium text-slate-900 mb-3">Students & Parents</h4>
+                  <ul className="text-sm text-slate-600 space-y-2">
+                    <li>• Find and book tutors</li>
+                    <li>• Track upcoming sessions</li>
+                    <li>• Know when payment is due</li>
+                  </ul>
+                </div>
+                
+                {/* Me (center) */}
+                <div className="bg-red-50 rounded-lg p-5 border border-red-200">
+                  <h4 className="font-medium text-red-800 mb-3">Me (The Bottleneck)</h4>
+                  <ul className="text-sm text-red-700 space-y-2">
+                    <li>• Manual tutor matching</li>
+                    <li>• Spreadsheet updates</li>
+                    <li>• Payment chasing</li>
+                    <li>• Constant phone calls</li>
+                  </ul>
+                </div>
+                
+                {/* Tutors */}
+                <div className="bg-white rounded-lg p-5 border border-slate-200">
+                  <h4 className="font-medium text-slate-900 mb-3">Tutors</h4>
+                  <ul className="text-sm text-slate-600 space-y-2">
+                    <li>• Get student assignments</li>
+                    <li>• Log completed sessions</li>
+                    <li>• Track their earnings</li>
+                  </ul>
+                </div>
+              </div>
+              <p className="text-center text-sm text-slate-500 mt-6">
+                Every request flowed through one person. 50+ touchpoints per week.
+              </p>
+            </div>
+          </section>
+
+          {/* SOLUTION */}
+          <section id="solution" className="mb-20 scroll-mt-32">
+            <h2 className="text-xs font-semibold text-sage-green uppercase tracking-wide mb-6">Solution</h2>
+            
+            <div className="prose prose-lg max-w-none mb-8">
+              <p className="text-slate-600 leading-relaxed mb-6">
+                I knew the business inside and out, but I wanted to validate my assumptions. I scheduled 
+                calls with parents and students, and ran a focus group with my tutors. A few insights stood out:
+              </p>
+            </div>
+
+            {/* Research Insights as Cards */}
+            <div className="grid md:grid-cols-3 gap-4 mb-10">
+              <div className="bg-sage-green/5 border border-sage-green/20 rounded-lg p-5">
+                <h4 className="font-medium text-slate-900 mb-2">Self-service expectations</h4>
+                <p className="text-sm text-slate-600">
+                  Users expected the same booking experience they get from restaurants or hair salons
+                </p>
+              </div>
+              <div className="bg-sage-green/5 border border-sage-green/20 rounded-lg p-5">
+                <h4 className="font-medium text-slate-900 mb-2">Payment confusion</h4>
+                <p className="text-sm text-slate-600">
+                  Students didn&apos;t know when payment was due; parents forgot. Tutors weren&apos;t sure when they&apos;d get paid.
+                </p>
+              </div>
+              <div className="bg-sage-green/5 border border-sage-green/20 rounded-lg p-5">
+                <h4 className="font-medium text-slate-900 mb-2">Visibility gap</h4>
+                <p className="text-sm text-slate-600">
+                  Everyone wanted to see their own data without having to ask me for it
+                </p>
+              </div>
+            </div>
+
+            <div className="prose prose-lg max-w-none mb-8">
+              <h3 className="text-xl font-semibold text-slate-900 mb-4">
+                The Core Idea: A Single Source of Truth
+              </h3>
+              <p className="text-slate-600 leading-relaxed mb-6">
+                Instead of managing multiple spreadsheets and constant messages, I would build one platform 
+                where each user type gets exactly what they need. Role-based access would replace manual gatekeeping.
+              </p>
+            </div>
+
+            {/* Admin Dashboard Mockup */}
+            <div className="bg-white border border-slate-200 rounded-xl p-6">
+              <div className="bg-slate-50 rounded-lg p-6">
                 {/* Dashboard Header */}
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
                   <div>
-                    <h4 className="font-semibold text-slate-900">Tutoring Operations Dashboard</h4>
-                    <p className="text-sm text-slate-500">Will's Tutoring Platform</p>
+                    <h4 className="font-semibold text-slate-900">Operations Overview</h4>
+                    <p className="text-sm text-slate-500">Will&apos;s Tutoring</p>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-sage-green rounded-full"></div>
-                    <span className="text-sm text-slate-600">Live Data</span>
+                    <span className="text-sm text-slate-600">Live</span>
                   </div>
                 </div>
                 
-                {/* Key Metrics */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                  <div className="bg-sage-green/10 p-4 rounded-lg text-center">
+                {/* Metrics Row */}
+                <div className="grid grid-cols-4 gap-4 mb-6">
+                  <div className="bg-white p-4 rounded-lg text-center border border-slate-200">
                     <div className="text-2xl font-bold text-sage-green">23</div>
                     <div className="text-xs text-slate-600">Sessions This Week</div>
                   </div>
-                  <div className="bg-slate-50 p-4 rounded-lg text-center">
+                  <div className="bg-white p-4 rounded-lg text-center border border-slate-200">
                     <div className="text-2xl font-bold text-slate-700">8</div>
                     <div className="text-xs text-slate-600">Active Tutors</div>
                   </div>
-                  <div className="bg-slate-50 p-4 rounded-lg text-center">
-                    <div className="text-2xl font-bold text-slate-700">47</div>
-                    <div className="text-xs text-slate-600">Students Served</div>
+                  <div className="bg-white p-4 rounded-lg text-center border border-slate-200">
+                    <div className="text-2xl font-bold text-slate-700">$2.4k</div>
+                    <div className="text-xs text-slate-600">Pending Payments</div>
                   </div>
-                  <div className="bg-slate-50 p-4 rounded-lg text-center">
-                    <div className="text-2xl font-bold text-slate-700">$1,840</div>
-                    <div className="text-xs text-slate-600">Weekly Revenue</div>
-                  </div>
-                </div>
-                
-                {/* Session List */}
-                <div className="space-y-3">
-                  <h5 className="font-medium text-slate-900 text-sm">Upcoming Sessions</h5>
-                  <div className="bg-sage-green/5 p-4 rounded border-l-4 border-sage-green">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <div className="font-medium text-slate-900 text-sm">Sarah Chen - AP Calculus</div>
-                        <div className="text-xs text-slate-600">with Alex Thompson • Today 4:00 PM</div>
-                      </div>
-                      <span className="bg-sage-green text-white text-xs px-2 py-1 rounded">Confirmed</span>
-                    </div>
-                  </div>
-                  <div className="bg-slate-50 p-4 rounded border-l-4 border-slate-300">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <div className="font-medium text-slate-900 text-sm">Mike Rodriguez - SAT Prep</div>
-                        <div className="text-xs text-slate-600">with Emma Park • Tomorrow 2:00 PM</div>
-                      </div>
-                      <span className="bg-slate-400 text-white text-xs px-2 py-1 rounded">Pending</span>
-                    </div>
-                  </div>
-                  <div className="bg-slate-50 p-4 rounded border-l-4 border-slate-300">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <div className="font-medium text-slate-900 text-sm">Jessica Kim - French Conversation</div>
-                        <div className="text-xs text-slate-600">with Marie Dubois • Wednesday 6:00 PM</div>
-                      </div>
-                      <span className="bg-slate-400 text-white text-xs px-2 py-1 rounded">Scheduled</span>
-                    </div>
+                  <div className="bg-white p-4 rounded-lg text-center border border-slate-200">
+                    <div className="text-2xl font-bold text-slate-700">3</div>
+                    <div className="text-xs text-slate-600">Action Items</div>
                   </div>
                 </div>
-                
-                {/* Quick Actions */}
-                <div className="mt-6 flex gap-3">
-                  <button className="bg-sage-green text-white text-sm px-4 py-2 rounded hover:bg-sage-green/90 transition-colors">
-                    Add Session
-                  </button>
-                  <button className="border border-slate-300 text-slate-700 text-sm px-4 py-2 rounded hover:bg-slate-50 transition-colors">
-                    View Reports
-                  </button>
-                  <button className="border border-slate-300 text-slate-700 text-sm px-4 py-2 rounded hover:bg-slate-50 transition-colors">
-                    Manage Tutors
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Overview Section */}
-<section id="overview" className="mb-16">
-  <h2 className="text-2xl font-bold text-slate-900 mb-6 uppercase text-xs tracking-wide">Overview</h2>
-  <div className="prose prose-lg max-w-none">
-    <p className="text-slate-600 leading-relaxed mb-6">
-      When I was a kid, my dream job was to be a university professor. I loved learning, and I quickly found that extended to teaching.
-      I started tutoring in the 9th grade, first with elementary school math, then expanding as I progressed through high school myself. 
-    </p>
-    <p className="text-slate-600 leading-relaxed mb-6">
-      By graduation, I'd grown to a point where I had to bring on five tutors to teach
-       fifty students at once. What started as a simple side project had become something much larger.
-    </p>
-    <p className="text-slate-600 leading-relaxed">
-      With this extra scale came a coordination nightmare. There was no convenient and cost-effective 
-      solution to manage tutoring operations at this level. For years, I slogged through spreadsheet hell. I manually 
-      matched tutors, coordinated class schedules, managed payments, and fielded calls constantly. By 2025, despite stepping away 
-      from personally teaching classes, I found myself more involved in operations than ever.
-    </p>
-  </div>
-</section>
-
-          {/* Context Section */}
-          <section id="context" className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6 uppercase text-xs tracking-wide">Context</h2>
-            
-            <div className="prose prose-lg max-w-none mb-8">
-              <h3 className="text-xl font-semibold text-slate-900 mb-4">
-                What if I could eliminate my biggest blocker: the time spent on coordination?
-              </h3>
-              <p className="text-slate-600 leading-relaxed">
-                At the time of starting this project, I was managing 10 tutors and over 100 students with different 
-                schedules, subjects, and payment terms. This created a three-way coordination problem where every 
-                scheduling conflict cascaded into hours of phone calls and manual spreadsheet updates. With back-to-school, 
-                September was supposed to be the best time for growth and sales, but I found myself putting out fires instead.
-              </p>
-            </div>
-
-            {/* Problem Visualization - Redesigned Manual Process Flow */}
-            <div className="bg-white border border-slate-200 rounded-xl p-8 mb-8">
-              <div className="text-center mb-8">
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">The Highly Manual Process Flow</h3>
-                <p className="text-sm text-slate-500">Every interaction required manual coordination through a single point of failure</p>
-              </div>
-              
-              <div className="max-w-6xl mx-auto">
-                {/* Three Column Layout with Visual Connections */}
-                <div className="grid md:grid-cols-3 gap-8 relative">
-                  
-                  {/* Students & Parents Column */}
-                  <div className="relative">
-                    <div className="bg-red-50 border-2 border-red-200 rounded-xl p-6 h-full">
-                      <div className="flex items-center mb-6">
-                        <div>
-                          <h4 className="text-lg font-semibold text-slate-900">Students & Parents</h4>
-                          <p className="text-sm text-red-600 font-medium">~100 active students</p>
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-4">
-                        <div className="bg-white rounded-lg p-4 border border-red-200">
-                          <p className="text-sm font-medium text-slate-900 mb-2">Manual Process Steps</p>
-                          <div className="space-y-2">
-                            <div className="flex items-start">
-                              <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Call or email me directly for tutoring needs</span>
-                            </div>
-                            <div className="flex items-start">
-                              <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Describe subject and scheduling needs over phone</span>
-                            </div>
-                            <div className="flex items-start">
-                              <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Wait for me to find and suggest tutor matches</span>
-                            </div>
-                            <div className="flex items-start">
-                              <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Coordinate payment details separately</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Arrow pointing to center - hidden on mobile */}
-                    <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                      <svg className="w-8 h-8 text-red-300" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* Admin Bottleneck Column */}
-                  <div className="relative">
-                    <div className="bg-slate-50 border-2 border-slate-300 rounded-xl p-6 h-full">
-                      <div className="flex items-center mb-6">
-                        <div>
-                          <h4 className="text-lg font-semibold text-slate-900">Admin Bottleneck</h4>
-                          <p className="text-sm text-slate-600 font-medium">Every transaction flows through me</p>
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-4">
-                        <div className="bg-white rounded-lg p-4 border border-slate-300">
-                          <p className="text-sm font-medium text-slate-900 mb-2">Manual Coordination Tasks</p>
-                          <div className="space-y-2">
-                            <div className="flex items-start">
-                              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Track all sessions and data across spreadsheets</span>
-                            </div>
-                            <div className="flex items-start">
-                              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Calculate and process payments from parents to tutors</span>
-                            </div>
-                            <div className="flex items-start">
-                              <div className="w-1.5 h-1.5 bg-slate-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Escalate cancellations and no-shows manually</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Tutors Column */}
-                  <div className="relative">
-                    <div className="bg-red-50 border-2 border-red-200 rounded-xl p-6 h-full">
-                      <div className="flex items-center mb-6">
-                        <div>
-                          <h4 className="text-lg font-semibold text-slate-900">Tutors</h4>
-                          <p className="text-sm text-red-600 font-medium">10 tutors requiring manual updates</p>
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-4">
-                        <div className="bg-white rounded-lg p-4 border border-red-200">
-                          <p className="text-sm font-medium text-slate-900 mb-2">Manual Process Steps</p>
-                          <div className="space-y-2">
-                            <div className="flex items-start">
-                              <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Receive student assignments from me via text</span>
-                            </div>
-                            <div className="flex items-start">
-                              <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Schedule sessions directly with families</span>
-                            </div>
-                            <div className="flex items-start">
-                              <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Report completed sessions back to me</span>
-                            </div>
-                              <div className="flex items-start">
-                              <div className="w-1.5 h-1.5 bg-red-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                              <span className="text-xs text-slate-600">Flag edge cases of cancellations, no-shows</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Arrow pointing to center from right - hidden on mobile */}
-                    <div className="hidden md:block absolute top-1/2 -left-4 transform -translate-y-1/2">
-                      <svg className="w-8 h-8 text-red-300" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Bottom Impact Statement */}
-                <div className="mt-8 text-center">
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-2xl mx-auto">
-                    <h4 className="text-lg font-semibold text-red-800 mb-2">The Result</h4>
-                    <p className="text-sm text-red-700">
-                      1 overwhelmed founder handling 50+ weekly touchpoints with an average of 6 hours on admin tasks weekly.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Research Section */}
-          <section id="research" className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6 uppercase text-xs tracking-wide">Research</h2>
-            
-            <div className="prose prose-lg max-w-none mb-8">
-              <p className="text-slate-600 leading-relaxed">
-                I knew my business inside and out, but I wanted to make sure I wasn't tunnel visioning on my 
-                own pain points as an admin. I decided to schedule calls with students and parents, and
-                I ran a focus group with my tutors.
-              </p>
-            </div>
-
-            {/* Simplified Research Cards */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl">🎓</span>
-                  </div>
-                  <h3 className="font-semibold text-slate-900 mb-3">Students & Parents</h3>
-                  <p className="text-sm text-slate-600 mb-3">
-                    <span className="font-medium">Top Need:</span> I want to book a tutor on my own time
-                  </p>
-                  <p className="text-sm text-slate-600">
-                    <span className="font-medium">Pain Point:</span> "We never know if a tutor is available until we call"
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-purple-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl">👨‍💼</span>
-                  </div>
-                  <h3 className="font-semibold text-slate-900 mb-3">Admin (Me)</h3>
-                  <p className="text-sm text-slate-600 mb-3">
-                    <span className="font-medium">Top Need:</span> Eliminate manual coordination
-                  </p>
-                  <p className="text-sm text-slate-600">
-                    <span className="font-medium">Pain Point:</span> "Every transaction flows through me"
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-xl">👨‍🏫</span>
-                  </div>
-                  <h3 className="font-semibold text-slate-900 mb-3">Tutors</h3>
-                  <p className="text-sm text-slate-600 mb-3">
-                    <span className="font-medium">Top Need:</span> It's hard to keep track of my sessions
-                  </p>
-                  <p className="text-sm text-slate-600">
-                    <span className="font-medium">Pain Point:</span> "I spend 20 minutes every day updating spreadsheets"
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Key Research Insights */}
-            <div className="bg-slate-50 rounded-lg p-6">
-              <h3 className="font-semibold text-slate-900 mb-4">Key Research Findings</h3>
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-sage-green rounded-full mr-3 mt-2"></div>
-                  <p className="text-slate-600">
-                    <span className="font-medium">Self-service expectations:</span> Users expected the same self-service experience they get from booking restaurants or appointments
-                  </p>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-sage-green rounded-full mr-3 mt-2"></div>
-                  <p className="text-slate-600">
-                    <span className="font-medium">Payment Transparency:</span> Students often didn't know when payment was due, but parents would be busy and forget. The same went for tutor payouts.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Solution Section */}
-          <section id="solution" className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6 uppercase text-xs tracking-wide">Solution</h2>
-            
-            <div className="prose prose-lg max-w-none mb-8">
-              <h3 className="text-xl font-semibold text-slate-900 mb-4">
-                A role-based platform providing real-time coordination for all stakeholders
-              </h3>
-              <p className="text-slate-600 leading-relaxed">
-                Instead of managing multiple spreadsheets and constant phone calls, I built a single 
-                platform where everyone gets exactly what they need, when they need it.
-              </p>
-            </div>
-
-            {/* Solution Architecture */}
-            <div className="bg-sage-green/5 border border-sage-green/20 rounded-lg p-8 mb-12">
-              <h3 className="font-semibold text-slate-900 mb-6">Core Solution: Single Source of Truth</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-white p-6 rounded border">
-                  <h4 className="font-medium text-sage-green mb-4">For Students and Parents</h4>
-                  <ul className="text-sm text-slate-600 space-y-2">
-                    <li>• Tutor discoverability and profiles</li>
-                    <li>• On-demand booking system</li>
-                    <li>• Payment history and reminders</li>
-                  </ul>
-                </div>
-                <div className="bg-white p-6 rounded border">
-                  <h4 className="font-medium text-sage-green mb-4">For Admin</h4>
-                  <ul className="text-sm text-slate-600 space-y-2">
-                    <li>• Fully automated booking workflow</li>
-                    <li>• Complete operational visibility</li>
-                    <li>• Data-driven analytics and insights</li>
-                  </ul>
-                </div>
-                  <div className="bg-white p-6 rounded border">
-                  <h4 className="font-medium text-sage-green mb-4">For Tutors</h4>
-                  <ul className="text-sm text-slate-600 space-y-2">
-                    <li>• Schedule management & availability</li>
-                    <li>• Session logging and edge case handling</li>
-                    <li>• Payment tracking and history</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Student View Section */}
-            <div className="mb-12">
-              <h3 className="text-lg font-semibold text-slate-900 mb-6">Student & Parent Dashboard</h3>
-              <div className="bg-white border border-slate-200 rounded-lg p-6">
-                {/* Student Dashboard Mockup - More Realistic */}
-                <div className="bg-slate-50 rounded-lg p-6 mb-4">
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
+                {/* Recent Sessions */}
+                <div className="space-y-2">
+                  <div className="bg-white p-3 rounded border-l-4 border-sage-green flex justify-between items-center">
                     <div>
-                      <h4 className="text-lg font-medium text-slate-900">Sarah Chen</h4>
-                      <p className="text-sm text-slate-500">Grade 11 • 4 active subjects</p>
+                      <div className="font-medium text-slate-900 text-sm">Alex Chen - Calculus</div>
+                      <div className="text-xs text-slate-500">with Sarah M. • Today 4:00 PM</div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-sm text-slate-600">3 sessions this week</span>
-                    </div>
+                    <span className="bg-sage-green/10 text-sage-green text-xs px-2 py-1 rounded">Confirmed</span>
                   </div>
-                  
-                  {/* Navigation Tabs */}
-                  <div className="flex space-x-6 mb-6 border-b border-slate-200">
-                    <button className="pb-2 border-b-2 border-sage-green text-sage-green text-sm font-medium">Find Tutors</button>
-                    <button className="pb-2 text-slate-500 text-sm">My Sessions</button>
-                    <button className="pb-2 text-slate-500 text-sm">Payment</button>
-                  </div>
-                  
-                  {/* Tutor Discovery */}
-                  <div className="mb-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <h5 className="text-sm font-medium text-slate-900">Available Tutors for AP Calculus</h5>
-                      <button className="text-xs text-sage-green">Filter</button>
+                  <div className="bg-white p-3 rounded border-l-4 border-amber-400 flex justify-between items-center">
+                    <div>
+                      <div className="font-medium text-slate-900 text-sm">Emma Wilson - Physics</div>
+                      <div className="text-xs text-slate-500">with James K. • Tomorrow 5:30 PM</div>
                     </div>
-                    <div className="space-y-3">
-                      <div className="bg-white border border-sage-green rounded-lg p-4">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <div className="w-10 h-10 bg-sage-green rounded-full flex items-center justify-center mr-3">
-                              <span className="text-white text-sm font-medium">AT</span>
-                            </div>
-                            <div>
-                              <p className="text-sm font-medium text-slate-900">Alex Thompson</p>
-                              <div className="flex items-center text-xs text-slate-600">
-                                <span className="text-yellow-500">★★★★★</span>
-                                <span className="ml-1">4.9 (23 reviews)</span>
-                                <span className="mx-2">•</span>
-                                <span>$45/hr</span>
-                              </div>
-                              <p className="text-xs text-slate-600 mt-1">Available today 4:00 PM - 8:00 PM</p>
-                            </div>
-                          </div>
-                          <button className="bg-sage-green text-white text-xs px-3 py-2 rounded">Book Now</button>
-                        </div>
-                      </div>
-                      <div className="bg-white border border-slate-200 rounded-lg p-4">
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <div className="w-10 h-10 bg-slate-300 rounded-full flex items-center justify-center mr-3">
-                              <span className="text-white text-sm font-medium">JS</span>
-                            </div>
-                            <div>
-                              <p className="text-sm font-medium text-slate-900">Jordan Smith</p>
-                              <div className="flex items-center text-xs text-slate-600">
-                                <span className="text-yellow-500">★★★★☆</span>
-                                <span className="ml-1">4.7 (18 reviews)</span>
-                                <span className="mx-2">•</span>
-                                <span>$40/hr</span>
-                              </div>
-                              <p className="text-xs text-slate-500 mt-1">Next available: Tomorrow 2:00 PM</p>
-                            </div>
-                          </div>
-                          <button className="border border-slate-300 text-slate-600 text-xs px-3 py-2 rounded">View Profile</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Quick Stats */}
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="bg-white rounded p-3 text-center border border-slate-200">
-                      <div className="text-lg font-semibold text-slate-900">12</div>
-                      <div className="text-xs text-slate-600">Sessions this month</div>
-                    </div>
-                    <div className="bg-white rounded p-3 text-center border border-slate-200">
-                      <div className="text-lg font-semibold text-sage-green">$540</div>
-                      <div className="text-xs text-slate-600">Total spent</div>
-                    </div>
-                    <div className="bg-white rounded p-3 text-center border border-slate-200">
-                      <div className="text-lg font-semibold text-slate-900">4.8</div>
-                      <div className="text-xs text-slate-600">Avg tutor rating</div>
-                    </div>
+                    <span className="bg-amber-50 text-amber-700 text-xs px-2 py-1 rounded">Pending</span>
                   </div>
                 </div>
-                <p className="text-sm italic text-slate-600">
-                  <span className="font-medium">Key Features:</span> Real-time tutor availability with ratings and reviews, 
-                  one-click booking system, session history, and transparent payment tracking
+              </div>
+              <p className="text-center text-sm text-slate-400 mt-4 italic">Mockup of the admin dashboard</p>
+            </div>
+          </section>
+
+          {/* EXECUTION */}
+          <section id="execution" className="mb-20 scroll-mt-32">
+            <h2 className="text-xs font-semibold text-sage-green uppercase tracking-wide mb-6">Execution</h2>
+            
+            <div className="prose prose-lg max-w-none mb-8">
+              <p className="text-slate-600 leading-relaxed mb-6">
+                I chose Next.js for the frontend and Supabase for the backend. Both have generous free 
+                tiers and would scale if needed. Three weekends to ship.
+              </p>
+              <p className="text-slate-600 leading-relaxed mb-6">
+                I initially wanted to build everything: my own scheduling system, payment processing, analytics. 
+                But as a solo developer on a deadline, I scoped down. I kept Calendly for scheduling and made 
+                payments tracking-only. The goal was eliminating my bottleneck, not building a complete SaaS product.
+              </p>
+            </div>
+
+            {/* Timeline */}
+            <div className="space-y-8">
+              {/* Week 1 */}
+              <div className="flex gap-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
+                  <span className="text-slate-600 font-semibold text-sm">01</span>
+                </div>
+                <div className="flex-1 pb-8 border-b border-slate-200">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-semibold text-slate-900">Foundation & Architecture</h3>
+                    <span className="text-xs text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Weekend 1</span>
+                  </div>
+                  <p className="text-sm text-slate-600 mb-4">
+                    After completing user interviews, I mapped out user journeys and determined the critical path. 
+                    Set up the database schema with role-based access in mind from day one. This decision saved 
+                    countless hours later.
+                  </p>
+                  <p className="text-sm text-slate-600 mb-4">
+                    I chose Supabase&apos;s Row Level Security (RLS) so users could only see data relevant to their role. 
+                    Tutors see student contact info but not payment details. Parents see their own children only.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">User Research</span>
+                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">DB Schema</span>
+                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">RLS Policies</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Week 2 */}
+              <div className="flex gap-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-sage-green/10 rounded-full flex items-center justify-center">
+                  <span className="text-sage-green font-semibold text-sm">02</span>
+                </div>
+                <div className="flex-1 pb-8 border-b border-slate-200">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-semibold text-slate-900">Core Features & Permissions</h3>
+                    <span className="text-xs text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Weekend 2</span>
+                  </div>
+                  <p className="text-sm text-slate-600 mb-4">
+                    Built authentication, tutor profiles, student management, and session logging. The auth flow 
+                    alone took longer than expected. Handling edge cases like password resets, email verification, 
+                    and session expiry added up.
+                  </p>
+                  <p className="text-sm text-slate-600 mb-4">
+                    Testing with 3 tutors immediately revealed gaps. They needed granular permissions I had not 
+                    considered: access to student contact info for scheduling, but not payment history. Information 
+                    architecture decisions directly impact user trust.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Auth Flow</span>
+                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Profiles</span>
+                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Session CRUD</span>
+                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Permissions</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Week 3 */}
+              <div className="flex gap-6">
+                <div className="flex-shrink-0 w-12 h-12 bg-sage-green rounded-full flex items-center justify-center">
+                  <span className="text-white font-semibold text-sm">03</span>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-semibold text-slate-900">Polish & Launch</h3>
+                    <span className="text-xs text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Weekend 3</span>
+                  </div>
+                  <p className="text-sm text-slate-600 mb-4">
+                    Mobile responsiveness, onboarding flows, edge case handling. This phase took as much time 
+                    as building core features, and that surprised me. What about cancellations? No-shows? 
+                    Rescheduling conflicts?
+                  </p>
+                  <p className="text-sm text-slate-600 mb-4">
+                    These &quot;exceptions&quot; are actually core to how users perceive the product. Handling them 
+                    gracefully matters more than feature count. Deployed to Vercel, onboarded all tutors 
+                    in a group call, and went live.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Responsive</span>
+                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Onboarding</span>
+                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Edge Cases</span>
+                    <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Launch</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* REFLECTION */}
+          <section id="reflection" className="mb-20 scroll-mt-32">
+            <h2 className="text-xs font-semibold text-sage-green uppercase tracking-wide mb-6">Reflection</h2>
+            
+            <div className="prose prose-lg max-w-none mb-10">
+              <p className="text-slate-600 leading-relaxed">
+                A month later, the platform runs smoothly with minimal intervention. I went from 6 hours 
+                of weekly admin to about 15 minutes. More importantly, I learned things that will stick with me.
+              </p>
+            </div>
+
+            {/* Key Learnings - 2x2 Grid */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white border border-slate-200 rounded-lg p-6">
+                <h3 className="font-semibold text-slate-900 mb-3">Scope ruthlessly</h3>
+                <p className="text-sm text-slate-600">
+                  I wanted to build everything: scheduling, payments, analytics. But the right solution 
+                  for context is not the perfect solution. Keeping Calendly and tracking payments manually 
+                  let me ship in 3 weeks instead of 3 months.
                 </p>
               </div>
-            </div>
 
-            {/* Tutor View Section */}
-            <div className="mb-12">
-              <h3 className="text-lg font-semibold text-slate-900 mb-6">Tutor Dashboard</h3>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
-                {/* Tutor Dashboard Mockup - More Realistic */}
-                <div className="bg-slate-50 rounded-lg p-6 mb-4">
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
-                    <div className="flex items-center">
-                      <div className="w-12 h-12 bg-sage-green rounded-full flex items-center justify-center mr-4">
-                        <span className="text-white font-medium">AT</span>
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-medium text-slate-900">Alex Thompson</h4>
-                        <p className="text-sm text-slate-500">Math Tutor • 23 active students</p>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-sm font-medium text-slate-900">This Week</div>
-                      <div className="text-lg font-semibold text-sage-green">$315</div>
-                    </div>
-                  </div>
-                  
-                  {/* Navigation Tabs */}
-                  <div className="flex space-x-6 mb-6 border-b border-slate-200">
-                    <button className="pb-2 border-b-2 border-sage-green text-sage-green text-sm font-medium">Today's Schedule</button>
-                    <button className="pb-2 text-slate-500 text-sm">Profile</button>
-                    <button className="pb-2 text-slate-500 text-sm">Earnings</button>
-                  </div>
-                  
-                  {/* Today's Sessions */}
-                  <div className="mb-6">
-                    <h5 className="text-sm font-medium text-slate-900 mb-4">Tuesday, September 22nd</h5>
-                    <div className="space-y-3">
-                      <div className="bg-white border border-sage-green rounded-lg p-4">
-                        <div className="flex justify-between items-center mb-2">
-                          <div>
-                            <p className="text-sm font-medium text-slate-900">Sarah Chen - AP Calculus</p>
-                            <p className="text-xs text-slate-600">4:00 PM - 5:30 PM • Derivatives & Chain Rule</p>
-                          </div>
-                          <span className="bg-sage-green text-white text-xs px-2 py-1 rounded">In Progress</span>
-                        </div>
-                        <div className="flex space-x-2 mt-3">
-                          <select className="text-xs border border-slate-300 rounded px-2 py-1 flex-1">
-                            <option>Mark Complete</option>
-                            <option>Student No-Show</option>
-                            <option>Cancelled</option>
-                          </select>
-                          <button className="text-xs bg-slate-100 border border-slate-300 px-3 py-1 rounded">Add Notes</button>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-white border border-slate-200 rounded-lg p-4">
-                        <div className="flex justify-between items-center mb-2">
-                          <div>
-                            <p className="text-sm font-medium text-slate-900">Mike Rodriguez - SAT Prep</p>
-                            <p className="text-xs text-slate-600">7:00 PM - 8:00 PM • Practice Test Review</p>
-                          </div>
-                          <span className="bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded">Upcoming</span>
-                        </div>
-                        <p className="text-xs text-slate-500 mt-2">Prep materials: Practice Test #4, Math sections 3-4</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Quick Actions */}
-                  <div className="grid grid-cols-3 gap-3">
-                    <button className="bg-sage-green text-white text-sm py-2 rounded">Update Availability</button>
-                    <button className="border border-slate-300 text-slate-700 text-sm py-2 rounded">View Calendar</button>
-                    <button className="border border-slate-300 text-slate-700 text-sm py-2 rounded">Payout History</button>
-                  </div>
-                </div>
-                <p className="text-sm italic text-slate-600">
-                  <span className="font-medium">Key Features:</span> Real-time session management with status updates, 
-                  integrated note-taking, automated earnings tracking, and availability control
+                <h3 className="font-semibold text-slate-900 mb-3">Edge cases define the experience</h3>
+                <p className="text-sm text-slate-600">
+                  The happy path was easy. What about cancellations? No-shows? Payment disputes? These 
+                  &quot;exceptions&quot; are actually core to how users perceive the product. Handling them gracefully 
+                  took as much effort as building the main features.
                 </p>
               </div>
-            </div>
 
-
-          </section>
-
-          {/* Execution Section */}
-          <section id="execution" className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6 uppercase text-xs tracking-wide">Execution</h2>
-            
-            <div className="prose prose-lg max-w-none mb-12">
-              <p className="text-slate-600 leading-relaxed">
-                I wanted to get everything up and running by the end of September, when school starts to pick up and parents start calling. To get there, I had three weekends. I spent the first on user research, then the following two on development to get the MVP up and running.
-              </p>
-            </div>
-
-            {/* Development Timeline */}
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-200"></div>
-              
-              <div className="space-y-16">
-                {/* Weekend One */}
-                <div className="relative">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center relative z-10">
-                      <span className="text-slate-600 font-semibold">01</span>
-                    </div>
-                    <div className="ml-8 flex-1">
-                      <div className="bg-white border border-slate-200 rounded-xl p-8">
-                        <div className="flex items-center justify-between mb-6">
-                          <h3 className="text-xl font-semibold text-slate-900">Strategic Foundation</h3>
-                          <span className="text-sm text-slate-500 bg-slate-50 px-3 py-1 rounded-full">Weekend One</span>
-                        </div>
-                        
-                        <div className="space-y-6">
-                          <div>
-                            <h4 className="font-medium text-slate-900 mb-3">Build vs Buy Analysis</h4>
-                            <p className="text-sm text-slate-600 mb-4">
-                              After completing my user interviews, I mapped the complete user journeys and determined what features were
-                              most critical to get started. I initially wnted to clone Calendly functionality within the platform 
-                              and integrate payments for full control. 
-                            </p>
-                            <p className="text-sm text-slate-600 mb-4">
-                              As a solo developer on a deadline, I chose to limit the scope instead. Keeping things limited to payment tracking and session management
-                              made sense for development speed and security. 
-                            </p>
-                            <div className="bg-slate-50 border-l-4 border-sage-green p-4 rounded-r">
-                              <p className="text-sm text-sage-green font-medium">
-                                Key Learning: Perfect solutions vs. right solutions for context, considering time, resources, and risk.
-                              </p>
-                            </div>
-                          </div>
-
-                          <div>
-                            <h4 className="font-medium text-slate-900 mb-3">Technology Architecture</h4>
-                            <p className="text-sm text-slate-600 mb-4">
-                              I also had to decide what tech stack worked for my needs. I wanted something lightweight but professional, and with a clear path to future scalability.
-                             </p>
-                            <div className="grid grid-cols-3 gap-4 mb-4">
-                              <div className="text-center p-4 bg-blue-50 rounded-lg">
-                                <div className="font-medium text-slate-900 mb-1">Next.js</div>
-                                <div className="text-xs text-slate-600">Full-stack React framework</div>
-                              </div>
-                              <div className="text-center p-4 bg-green-50 rounded-lg">
-                                <div className="font-medium text-slate-900 mb-1">Supabase</div>
-                                <div className="text-xs text-slate-600">Database + Authentication</div>
-                              </div>
-                              <div className="text-center p-4 bg-purple-50 rounded-lg">
-                                <div className="font-medium text-slate-900 mb-1">Vercel</div>
-                                <div className="text-xs text-slate-600">Deployment + Hosting</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Weekend Two */}
-                <div className="relative">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 w-16 h-16 bg-white border-4 border-sage-green rounded-full flex items-center justify-center relative z-10 shadow-sm">
-                      <span className="text-sage-green font-bold">02</span>
-                    </div>
-                    <div className="ml-8 flex-1">
-                      <div className="bg-white border border-slate-200 rounded-xl p-8">
-                        <div className="flex items-center justify-between mb-6">
-                          <h3 className="text-xl font-semibold text-slate-900">Security & User Management</h3>
-                          <span className="text-sm text-slate-500 bg-slate-50 px-3 py-1 rounded-full">Weekend Two</span>
-                        </div>
-                        
-                        <div className="space-y-6">
-                          <div>
-                            <h4 className="font-medium text-slate-900 mb-3">Security-First Development</h4>
-                            <p className="text-sm text-slate-600 mb-4">
-                              Built authentication and role-based access control as the foundation. Implemented Row Level Security (RLS) 
-                              to ensure users only access their relevant data. Put myself in each user's shoes: what do they actually 
-                              need to see? How can I provide that access safely?
-                            </p>
-                            <p className="text-sm text-slate-600 mb-4">
-                              Testing with 3 tutors immediately revealed the need for granular permission levels. Tutors needed 
-                              to see student contact info but not payment details, parents needed session history but not 
-                              other families' data.
-                            </p>
-                          </div>
-
-                          <div>
-                            <h4 className="font-medium text-slate-900 mb-3">Profile Setup & Discovery</h4>
-                            <p className="text-sm text-slate-600 mb-4">
-                              Built tutor and student profile systems with discoverability features. Key decision: 
-                              what information is actually necessary vs. nice-to-have? What should be visible to whom?
-                            </p>
-                            <div className="bg-slate-50 border-l-4 border-sage-green p-4 rounded-r">
-                              <p className="text-sm text-sage-green font-medium">
-                                Key Learning: Information architecture decisions directly impact user trust and platform adoption. Over-collecting creates friction; under-collecting limits effectiveness.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Weekend Three */}
-                <div className="relative">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 w-16 h-16 bg-sage-green rounded-full flex items-center justify-center relative z-10">
-                      <span className="text-white font-semibold">03</span>
-                    </div>
-                    <div className="ml-8 flex-1">
-                      <div className="bg-white border border-slate-200 rounded-xl p-8">
-                        <div className="flex items-center justify-between mb-6">
-                          <h3 className="text-xl font-semibold text-slate-900">Core Features & Polish</h3>
-                          <span className="text-sm text-slate-500 bg-slate-50 px-3 py-1 rounded-full">Weekend Three</span>
-                        </div>
-                        
-                        <div className="space-y-6">
-                          <div>
-                            <h4 className="font-medium text-slate-900 mb-3">Session Management & Edge Cases</h4>
-                            <p className="text-sm text-slate-600 mb-4">
-                              Implemented core session logging and booking functionality. Also added a payment tracker based off of the sessions. 
-                              The complexity came from handling real-world scenarios: no-shows, schedule changes, emergency cancellations, makeup sessions. 
-                              Each edge case that emerged in testing became a core feature requirement.
-                            </p>
-                          </div>
-
-                          <div>
-                            <h4 className="font-medium text-slate-900 mb-3">Polish & User Experience</h4>
-                            <p className="text-sm text-slate-600 mb-4">
-                              Performance optimization, mobile responsiveness, and onboarding flows. This phase took 
-                              as much time as building core features. Creating intuitive user experiences requires 
-                              as much effort as building functional ones.
-                            </p>
-                            <div className="bg-slate-50 border-l-4 border-sage-green p-4 rounded-r">
-                              <p className="text-sm text-sage-green font-medium">
-                                Key Learning: Edge cases aren't exceptions, they're core to how users perceive the experience. Products succeed based on how gracefully they handle messy reality, and how intuitive they are for users influences actual adoption. 
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Results Section */}
-          <section id="results" className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6 uppercase text-xs tracking-wide">Results</h2>
-            
-            <div className="prose prose-lg max-w-none mb-8">
-              <p className="text-slate-600 leading-relaxed">
-                A month later, the platform is processing sessions beautifully with minimal manual intervention. A follow-up survey sent to students, parents, and tutors revealed 
-                all users have felt like this system was a huge improvement, and it's freed me up to focus on strategic growth instead of getting bogged down in logistics. Having a unified, 
-                single source of truth has reduced the number of escalations regarding payments, and the real-time visibility has driven an uptick in student bookings YoY. 
-              </p>
-            </div>
-
-            {/* Impact Metrics */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-              <div className="text-center bg-white border border-slate-200 rounded-lg p-6">
-                <div className="text-3xl font-bold text-sage-green mb-2">95%</div>
-                <div className="font-medium text-slate-900 text-sm mb-1">Admin Time Saved</div>
-                <div className="text-xs text-slate-600">From 6 hours to 15 minutes weekly</div>
-              </div>
-              <div className="text-center bg-white border border-slate-200 rounded-lg p-6">
-                <div className="text-3xl font-bold text-sage-green mb-2">100%</div>
-                <div className="font-medium text-slate-900 text-sm mb-1">Users Satisfied</div>
-                <div className="text-xs text-slate-600">All stakeholders prefer new system</div>
-              </div>
-              <div className="text-center bg-white border border-slate-200 rounded-lg p-6">
-                <div className="text-3xl font-bold text-sage-green mb-2">100+</div>
-                <div className="font-medium text-slate-900 text-sm mb-1">Students Served</div>
-                <div className="text-xs text-slate-600">Current platform scale</div>
-              </div>
-              <div className="text-center bg-white border border-slate-200 rounded-lg p-6">
-                <div className="text-3xl font-bold text-sage-green mb-2">9</div>
-                <div className="font-medium text-slate-900 text-sm mb-1">Spreadsheets Eliminated</div>
-                <div className="text-xs text-slate-600">Now a single source of truth</div>
-              </div>
-            </div>
-          </section>
-
-          {/* Reflection Section */}
-          <section id="reflection" className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6 uppercase text-xs tracking-wide">Reflection</h2>
-            
-            <div className="prose prose-lg max-w-none mb-8">
-              <p className="text-slate-600 leading-relaxed">
-                As much as this project helped my business, it taught me even more. Having skin in the game made every design decision feel consequential, and not having a team to support me forced me to grow beyond my work experiences as solely a PM, a consultant, a founder. It turned me into a builder.
-              </p>
-            </div>
-
-             <div className="prose prose-lg max-w-none mb-8">
-              <p className="text-slate-600 leading-relaxed">
-                I started learning development through the Odin Project with a goal of communicating better with engineering teams. But there's a massive difference between understanding concepts and actually shipping code. This project threw me into the deep end: pushing to Git, debugging obscure errors at 2am, wrestling with database relationships I barely understood. I went from not fully grasping how the data layer connected to the UI to implementing Row Level Security policies and managing database migrations. Claude Code was genuinely impressive here: it helped me understand not just what to fix, but why things broke. Debugging became a teaching moment every time.
-              </p>
-            </div>
-
-            <div className="prose prose-lg max-w-none mb-8">
-              <p className="text-slate-600 leading-relaxed">
-              The vibecoding approach accelerated everything. Replit and Loveable let me prototype ideas in minutes instead of hours. When something didn't work, I could iterate immediately with real code, not wireframes. I'd make a change, test it with actual users, get feedback, and ship fixes the same day. That tight feedback loop taught me more in three weekends than months of tutorials would have.
-              </p>
-            </div>
-
-            <div className="prose prose-lg max-w-none mb-8">
-              <p className="text-slate-600 leading-relaxed">
-              What really stuck with me: AI makes it so easy to just do things. I can ship code. I can solve real problems. I can make my busines better today than it was yesterday. It was an incredible feeling to push an improvement live, think “I did that”, and immediately see users benefit from it. The gap between "I wish this worked differently" and "I fixed it" collapsed to hours instead of weeks. Understanding this made me a better PM, without a doubt. 
-              </p>
-            </div>
-
-            {/* PM Insights with Numbers and Color */}
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-white border border-slate-200 rounded-lg p-6">
-                <div className="flex items-start mb-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-slate-600 font-semibold text-sm">01</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-3">Solve for your users, not just yourself</h3>
-                    <p className="text-sm text-slate-600">
-                      User research still unearthed different priorities and pain points. Understanding real behavior 
-                      patterns beats feature intuition every time.
-                    </p>
-                  </div>
-                </div>
+                <h3 className="font-semibold text-slate-900 mb-3">Ship fast, learn faster</h3>
+                <p className="text-sm text-slate-600">
+                  I learned more in three weekends of building than months of planning ever could have 
+                  taught me. A working product today helps users more than perfect code next month. 
+                  The tight feedback loop of build, test with real users, iterate was everything.
+                </p>
               </div>
 
               <div className="bg-white border border-slate-200 rounded-lg p-6">
-                <div className="flex items-start mb-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-white border-2 border-sage-green rounded-full flex items-center justify-center mr-4">
-                    <span className="text-sage-green font-semibold text-sm">02</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-3">Constraints require ruthless prioritization</h3>
-                    <p className="text-sm text-slate-600">
-                      Time and resource constraints are an inevitability. Navigating that and  
-                      focusing on what truly creates user value is key.
-                    </p>
-                  </div>
-                </div>
+                <h3 className="font-semibold text-slate-900 mb-3">AI collapsed the gap</h3>
+                <p className="text-sm text-slate-600">
+                  As a business student, I could wireframe and spec features. But actually shipping code 
+                  felt out of reach. Tools like Claude Code changed that. Debugging became a teaching 
+                  moment, not a blocker. The gap between &quot;I wish this worked differently&quot; and &quot;I fixed it&quot; 
+                  collapsed to hours.
+                </p>
               </div>
-
-              <div className="bg-white border border-slate-200 rounded-lg p-6">
-                <div className="flex items-start mb-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-sage-green/20 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-sage-green font-semibold text-sm">03</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-3">Edge cases define product quality</h3>
-                    <p className="text-sm text-slate-600">
-                      Users judge your product by how it handles exceptions, not happy path scenarios. 
-                      Edge cases aren't bugs, they're feature requirements that determine user trust.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-lg p-6">
-                <div className="flex items-start mb-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-sage-green rounded-full flex items-center justify-center mr-4">
-                    <span className="text-white font-semibold text-sm">04</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-3">Ship fast, learn faster</h3>
-                    <p className="text-sm text-slate-600">
-                      Rapidly iterating with real users taught me more in three weekends than months of planning ever could. A working product today helps users more than perfect code next month. 
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Next Steps */}
-            <div className="bg-white border border-slate-200 rounded-lg p-8">
-              <h3 className="font-semibold text-slate-900 mb-6">Next Steps</h3>
-              <p className="text-slate-600 mb-4">With more time, I'd:</p>
-              <ul className="space-y-3 text-slate-600 mb-6">
-                <li className="flex items-start">
-                  <span className="text-sage-green mr-3 mt-1">•</span>
-                  <span><strong>Replace Calendly entirely</strong> — build a native calendar that integrates directly with our workflows instead of relying on external tools</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-sage-green mr-3 mt-1">•</span>
-                  <span><strong>Make payments seamless</strong> — move from tracking to actual payment processing, removing manual Venmo/e-transfer coordination</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-sage-green mr-3 mt-1">•</span>
-                  <span><strong>Add smart recommendations</strong> — use booking data to suggest optimal tutors based on subject, availability, and student learning style</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-sage-green mr-3 mt-1">•</span>
-                  <span><strong>Enable intelligent scheduling</strong> — recommend session times based on historical patterns and tutor/student availability</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-sage-green mr-3 mt-1">•</span>
-                  <span><strong>Build education features</strong> — add progress tracking, curriculum planning, and learning analytics to turn this from an operations tool into a comprehensive education platform</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-sage-green mr-3 mt-1">•</span>
-                  <span><strong>Implement real-time notifications</strong> — email and push alerts for schedule changes, payment reminders, and session confirmations</span>
-                </li>
-              </ul>
-              <p className="text-slate-600 italic">
-                I'm also working on a demo version! Stay tuned.
-              </p>
             </div>
           </section>
 
           {/* Footer */}
           <div className="border-t border-slate-200 pt-8">
             <div className="flex justify-between items-center">
-            <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="text-slate-600 hover:text-slate-900 flex items-center"
-            >
-              ← Back to top
-            </button>
+              <button 
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="text-slate-600 hover:text-slate-900 flex items-center"
+              >
+                ← Back to top
+              </button>
               <a 
-                href="https://tutoringdemo.vercel.app"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-sage-green text-white px-6 py-2 rounded hover:bg-sage-green/90 transition-colors inline-flex items-center"
               >
-                Live demo coming soon! →
+                View Live Demo →
               </a>
             </div>
           </div>
