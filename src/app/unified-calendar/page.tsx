@@ -4,140 +4,112 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function UnifiedCalendarPage() {
-  const [activeSection, setActiveSection] = useState('context')
-  const [showSidebar, setShowSidebar] = useState(false)
   const [scrollY, setScrollY] = useState(0)
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
-  }
+  const [activeSection, setActiveSection] = useState('context')
 
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY)
-      const sections = ['context', 'solution', 'execution', 'reflection']
-      const scrollPosition = window.scrollY + 200
 
-      for (const section of sections) {
+      // Update active section based on scroll position
+      const sections = ['context', 'solution', 'execution', 'reflection']
+      for (const section of [...sections].reverse()) {
         const element = document.getElementById(section)
-        if (element && element.offsetTop <= scrollPosition && 
-            element.offsetTop + element.offsetHeight > scrollPosition) {
+        if (element && window.scrollY >= element.offsetTop - 200) {
           setActiveSection(section)
           break
         }
       }
-      setShowSidebar(window.scrollY > 100)
     }
-
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navigationItems = [
-    { id: 'context', label: 'Context' },
-    { id: 'solution', label: 'Solution' },
-    { id: 'execution', label: 'Execution' },
-    { id: 'reflection', label: 'Reflection' }
-  ]
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
+      {/* Floating Header */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrollY > 50 ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-white border-b border-slate-200'
+        scrollY > 50 ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
       }`}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <div className="w-2 h-2 bg-sage-green rounded-full"></div>
-              <h1 className="text-lg font-semibold text-slate-900 tracking-tight">WILLIAM ZHAI</h1>
-            </Link>
-            <div className="flex items-center gap-3">
-              <a 
-                href="https://github.com/zhw16-dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-slate-600 transition-colors"
-                aria-label="GitHub"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                </svg>
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/wzhai/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-slate-600 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-              <a 
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-400 hover:text-slate-600 transition-colors flex items-center gap-1.5"
-                aria-label="Resume"
-              >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                <span className="text-sm font-medium">Resume</span>
-              </a>
-            </div>
-          </div>
-          <a 
-            href="mailto:wzhai.hba2026@ivey.ca" 
-            className="text-sm text-slate-600 hover:text-sage-green transition-colors"
+        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+          <Link
+            href="/"
+            className="text-slate-600 hover:text-sage-green transition-colors flex items-center gap-2"
           >
-            Get in touch →
-          </a>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Portfolio
+          </Link>
+
+          <div className="flex items-center gap-6">
+            <a
+              href="https://github.com/zhw16-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-sage-green transition-colors"
+              aria-label="GitHub"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/wzhai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-sage-green transition-colors"
+              aria-label="LinkedIn"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a
+              href="/Will_Zhai_Resume.pdf"
+              target="_blank"
+              className="text-slate-400 hover:text-sage-green transition-colors text-sm font-medium"
+            >
+              Resume
+            </a>
+          </div>
         </div>
       </header>
 
-      {/* Case Study Section */}
-      <div className="flex pt-28">
-        {/* Sidebar Navigation */}
-        <aside className="hidden xl:block xl:w-64 xl:fixed xl:left-0 xl:top-24 xl:h-[calc(100vh-6rem)] xl:z-40">
-          <div className={`transition-all duration-300 ${
-            showSidebar ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-          }`}>
-            <div className="p-6">
-              <div className="mb-6">
-                <Link 
-                  href="/"
-                  className="text-sm text-slate-500 hover:text-slate-700 flex items-center"
-                >
-                  ← Back to Portfolio
-                </Link>
-              </div>
-              <nav className="space-y-2">
-                {navigationItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left px-3 py-2 text-sm rounded transition-colors ${
-                      activeSection === item.id 
-                        ? 'bg-sage-green text-white' 
-                        : 'text-slate-600 hover:bg-slate-100'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </nav>
-            </div>
-          </div>
-        </aside>
+      {/* Sidebar Navigation - Hidden on mobile */}
+      <aside className="hidden xl:block fixed left-8 top-1/2 -translate-y-1/2 z-40">
+        <nav className="flex flex-col gap-3">
+          {[
+            { id: 'context', label: 'Context' },
+            { id: 'solution', label: 'Solution' },
+            { id: 'execution', label: 'Execution' },
+            { id: 'reflection', label: 'Reflection' },
+          ].map((section) => (
+            <button
+              key={section.id}
+              onClick={() => scrollToSection(section.id)}
+              className={`text-left text-sm transition-all duration-300 ${
+                activeSection === section.id
+                  ? 'text-sage-green font-medium translate-x-2'
+                  : 'text-slate-400 hover:text-slate-600'
+              }`}
+            >
+              {section.label}
+            </button>
+          ))}
+        </nav>
+      </aside>
 
-        {/* Main Content */}
-        <main className="flex-1 max-w-5xl mx-auto p-6 lg:p-12">
+      {/* Main Content */}
+      <div className="flex">
+        <main className="flex-1 max-w-5xl mx-auto px-6 pt-32 pb-20">
           {/* Case Study Header */}
           <div className="mb-16">
             <div className="mb-8">

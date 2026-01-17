@@ -22,9 +22,9 @@ const caseStudies = [
   },
   {
     id: 'project-3',
-    title: 'Simplifying Group Trip Planning - Write Up Soon',
-    year: '2026',
-    href: '#',
+    title: 'Going From Solving Cases to Writing One',
+    year: '2025',
+    href: '/pinterest-case',
     bgColor: 'bg-[#5a7c6f]',
     textColor: 'text-white',
   },
@@ -167,7 +167,7 @@ export default function LandingPage() {
               {/* Hero Text */}
               <div className="mb-6 lg:mb-8 animate-fade-in-up pl-6">
                 <h1 className="text-3xl lg:text-4xl font-bold text-slate-600 leading-[1.2]">
-                  Hi, I&apos;m <span className="text-sage-green">Will!</span>
+                  <span className="text-sage-green">William Zhai</span>
                 </h1>
                 <p className="text-xl lg:text-2xl text-slate-500 mt-2">
                   Product & Strategy
