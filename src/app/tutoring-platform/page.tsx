@@ -486,7 +486,7 @@ export default function TutoringPlatformPage() {
                 rel="noopener noreferrer"
                 className="bg-sage-green text-white px-6 py-2 rounded hover:bg-sage-green/90 transition-colors inline-flex items-center"
               >
-                View Live Demo →
+                Live Demo Coming Soon →
               </a>
             </div>
           </div>
