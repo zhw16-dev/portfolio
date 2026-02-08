@@ -481,12 +481,12 @@ export default function TutoringPlatformPage() {
                 ← Back to top
               </button>
               <a 
-                href="#"
+                href="https://tutoringdemo.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-sage-green text-white px-6 py-2 rounded hover:bg-sage-green/90 transition-colors inline-flex items-center"
               >
-                Live Demo Coming Soon →
+                View Live Demo →
               </a>
             </div>
           </div>
