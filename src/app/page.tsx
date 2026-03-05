@@ -212,7 +212,7 @@ export default function LandingPage() {
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="font-medium text-slate-900 text-sm">Will&apos;s Tutoring</span>
-                      <span className="text-xs text-slate-600">Founder ($500k revenue)</span>
+                      <span className="text-xs text-slate-600">Founder</span>
                     </div>
                   </div>
                 </div>
