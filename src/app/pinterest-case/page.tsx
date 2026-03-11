@@ -69,7 +69,7 @@ export default function PinterestCasePage() {
               <span className="text-sm text-slate-500">2025</span>
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-              Going from Solving Cases to <span className="text-sage-green">Writing One</span>
+              Writing an Ivey Case: <span className="text-sage-green">Pinterest at a Strategic Crossroads</span>
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed">
               Stepping behind the curtain to experience the other side of case-based learning. 

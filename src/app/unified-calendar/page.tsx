@@ -113,8 +113,8 @@ export default function UnifiedCalendarPage() {
                 <span className="text-sm text-slate-500">2025</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                Building a calendar for
-                <span className="text-sage-green"> work, school, and life</span>
+                Solving Calendar Fragmentation with a
+                <span className="text-sage-green"> Unified ICS Aggregator</span>
               </h1>
               <p className="text-xl text-slate-600 leading-relaxed max-w-3xl">
                 A one-day sprint to solve my own coordination nightmare: aggregating school, work, and personal calendars into a single view with privacy-first architecture.

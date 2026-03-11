@@ -113,8 +113,8 @@ export default function TutoringPlatformPage() {
                 <span className="text-sm text-slate-500">2025</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                Can I Make My Tutoring Business
-                <span className="text-sage-green"> Run Itself?</span>
+                Automating My Tutoring Business:
+                <span className="text-sage-green"> Scheduling, Payments, and Escalations</span>
               </h1>
               <p className="text-xl text-slate-600 leading-relaxed max-w-3xl">
                 Building a role-based platform to eliminate the operational chaos of managing 10 tutors and 100+ students.

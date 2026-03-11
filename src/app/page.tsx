@@ -1,46 +1,51 @@
 'use client'
 
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
 
-const caseStudies = [
+const projects = [
   {
     id: 'tutoring-platform',
-    title: 'Can I Make My Tutoring Business Run Itself?',
-    year: '2025',
+    title: 'Automating My Tutoring Business: Scheduling, Payments, and Escalations',
+    tag: 'PROJECT · 2025',
     href: '/tutoring-platform',
-    bgColor: 'bg-[#2E4C3C]',
-    textColor: 'text-white',
   },
   {
     id: 'unified-calendar',
-    title: 'Building a Calendar for Work, School, and Life',
-    year: '2025',
+    title: 'Solving Calendar Fragmentation with a Unified ICS Aggregator',
+    tag: 'PROJECT · 2025',
     href: '/unified-calendar',
-    bgColor: 'bg-sage-green',
-    textColor: 'text-white',
   },
   {
-    id: 'project-3',
-    title: 'Going From Solving Cases to Writing One',
-    year: '2025',
+    id: 'ai-prototype',
+    title: 'What If My Tutoring Business Ran Itself? An AI-Native Prototype',
+    tag: 'PROJECT · 2026',
+    href: '/ai-prototype',
+  },
+  {
+    id: 'pinterest-case',
+    title: 'Writing an Ivey Case: Pinterest at a Strategic Crossroads',
+    tag: 'CASE STUDY · 2025',
     href: '/pinterest-case',
-    bgColor: 'bg-[#5a7c6f]',
-    textColor: 'text-white',
   },
   {
-    id: 'coming-soon',
-    title: 'More Coming Soon!',
-    year: '',
+    id: 'duolingo',
+    title: 'Reimagining Streak Loss: A Duolingo Feature Concept',
+    tag: 'CASE STUDY · 2025',
     href: '#',
-    bgColor: 'bg-white border-2 border-slate-200',
-    textColor: 'text-slate-400',
   },
+]
+
+const experience = [
+  { year: '2025–', company: 'Microsoft', role: 'Product Manager Intern' },
+  { year: '2025', company: 'EY-Parthenon', role: 'Strategy Summer Associate' },
+  { year: '2024', company: 'CIBC', role: 'AI Strategy Intern' },
+  { year: '2019', company: 'Will\u2019s Tutoring', role: 'Founder' },
 ]
 
 export default function LandingPage() {
   const [scrollY, setScrollY] = useState(0)
-  const [rotationOffset, setRotationOffset] = useState(0)
+  const [hoveredRow, setHoveredRow] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
@@ -48,40 +53,8 @@ export default function LandingPage() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Stacking - adjusted for viewport fitting
-  const stackPositions = [
-    { rotation: 0, offsetX: 0, offsetY: 0 },
-    { rotation: 5, offsetX: 10, offsetY: -70 },
-    { rotation: -4, offsetX: -7, offsetY: -140 },
-    { rotation: 6, offsetX: 12, offsetY: -210 },
-  ]
-
-  const getCardPosition = (cardIndex: number) => {
-    const totalCards = caseStudies.length
-    const position = (cardIndex - rotationOffset + totalCards) % totalCards
-    return position
-  }
-
-  const getCardStyle = (cardIndex: number) => {
-    const position = getCardPosition(cardIndex)
-    const pos = stackPositions[position]
-    
-    return {
-      transform: `rotate(${pos.rotation}deg) translate(${pos.offsetX}px, ${pos.offsetY}px)`,
-      zIndex: 100 - position,
-    }
-  }
-
-  const goToNext = () => {
-    setRotationOffset((prev) => (prev + 1) % caseStudies.length)
-  }
-
-  const goToPrev = () => {
-    setRotationOffset((prev) => (prev - 1 + caseStudies.length) % caseStudies.length)
-  }
-
   return (
-    <div className="min-h-screen lg:h-screen lg:overflow-hidden bg-cream">
+    <div className="min-h-screen bg-cream">
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes fadeInUp {
           from {
@@ -96,9 +69,6 @@ export default function LandingPage() {
         .animate-fade-in-up {
           animation: fadeInUp 0.8s ease-out forwards;
         }
-        .delay-100 { animation-delay: 0.1s; opacity: 0; }
-        .delay-200 { animation-delay: 0.2s; opacity: 0; }
-        .delay-300 { animation-delay: 0.3s; opacity: 0; }
       `}} />
 
       {/* Floating Header */}
@@ -112,7 +82,7 @@ export default function LandingPage() {
               <span className="text-lg font-semibold text-slate-900 tracking-tight">WILLIAM ZHAI</span>
             </div>
             <div className="flex items-center gap-3">
-              <a 
+              <a
                 href="https://github.com/zhw16-dev"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -123,7 +93,7 @@ export default function LandingPage() {
                   <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
                 </svg>
               </a>
-              <a 
+              <a
                 href="https://www.linkedin.com/in/wzhai/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -136,8 +106,8 @@ export default function LandingPage() {
               </a>
             </div>
           </div>
-          <a 
-            href="mailto:wzhai.hba2026@ivey.ca" 
+          <a
+            href="mailto:wzhai.hba2026@ivey.ca"
             className="text-sm text-slate-600 hover:text-sage-green transition-colors"
           >
             Get in touch →
@@ -145,217 +115,192 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* Main Content - viewport constrained on desktop */}
-      <main className="pt-24 pb-20 px-6 lg:px-12 lg:h-screen lg:flex lg:items-center lg:pt-16 lg:pb-8">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            
-            {/* Left Column: Hero + Info Cards */}
-            <div>
-              {/* Hero Text */}
-              <div className="mb-6 lg:mb-8 animate-fade-in-up pl-6">
-                <h1 className="text-3xl lg:text-4xl font-bold text-slate-600 leading-[1.2]">
-                  <span className="text-sage-green">William Zhai</span>
-                </h1>
-                <p className="text-xl lg:text-2xl text-slate-500 mt-2">
-                  Product & Strategy
-                </p>
+      {/* Main content */}
+      <main className="px-6 lg:px-12">
+        <div style={{ maxWidth: 900 }} className="mx-auto">
+
+          {/* Bio section */}
+          <div
+            style={{ paddingTop: '9rem', animation: 'fadeInUp 0.6s ease-out' }}
+          >
+            {/* Bio container */}
+            <div className="bg-sage-green/5 border border-sage-green/20 rounded-2xl" style={{
+              padding: '3.5rem 3rem',
+            }}>
+              {/* Mobile: stacked */}
+              <div className="lg:hidden">
+                <div>
+                  <h1 style={{
+                    fontSize: 46,
+                    fontWeight: 700,
+                    letterSpacing: '-0.03em',
+                    lineHeight: 1.1,
+                  }}
+                  className="text-sage-green">
+                    William Zhai
+                  </h1>
+                  <p style={{ fontSize: 20, color: '#64748b', marginTop: '0.5rem' }}>
+                    Product & Strategy
+                  </p>
+                </div>
+                <div
+                  className="grid mt-8"
+                  style={{
+                    gridTemplateColumns: '50px 160px auto',
+                    gap: '0 1.25rem',
+                    rowGap: '0.45rem',
+                  }}
+                >
+                  {experience.map((exp) => (
+                    <React.Fragment key={exp.company}>
+                      <span className="text-sage-green" style={{ fontSize: 12, fontVariantNumeric: 'tabular-nums' }}>
+                        {exp.year}
+                      </span>
+                      <span style={{ fontSize: 13, fontWeight: 600, color: '#1e293b' }}>
+                        {exp.company}
+                      </span>
+                      <span style={{ fontSize: 12, color: '#64748b' }}>
+                        {exp.role}
+                      </span>
+                    </React.Fragment>
+                  ))}
+                </div>
               </div>
 
-              {/* Info Cards */}
-              <div className="space-y-3 animate-fade-in-up delay-200">
-                {/* Current Role */}
-                <div className="bg-white rounded-2xl p-4 lg:p-5 border border-slate-200 shadow-sm">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-xs font-semibold text-sage-green uppercase tracking-wider mb-1">Current</div>
-                      <h3 className="text-xl lg:text-2xl font-bold text-slate-900">Microsoft</h3>
-                      <p className="text-sm lg:text-base text-slate-600">Product Manager Intern</p>
-                    </div>
-                    <div className="w-10 h-10 lg:w-12 lg:h-12 bg-sage-green/10 rounded-xl flex items-center justify-center">
-                      <svg className="w-5 h-5 lg:w-6 lg:h-6 text-sage-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                  </div>
+              {/* Desktop: left/right split */}
+              <div className="hidden lg:flex justify-between items-center">
+                <div>
+                  <h1 style={{
+                    fontSize: 46,
+                    fontWeight: 700,
+                    letterSpacing: '-0.03em',
+                    lineHeight: 1.1,
+                  }}
+                  className="text-sage-green">
+                    William Zhai
+                  </h1>
+                  <p style={{ fontSize: 20, color: '#64748b', marginTop: '0.5rem' }}>
+                    Product & Strategy
+                  </p>
                 </div>
-
-                {/* Education */}
-                <div className="bg-white rounded-2xl p-4 lg:p-5 border border-slate-200">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-xs font-semibold text-sage-green uppercase tracking-wider mb-1">Education</div>
-                      <h4 className="font-semibold text-slate-900">Ivey Business School</h4>
-                      <p className="text-sm text-slate-600">HBA Candidate</p>
-                    </div>
-                    <div className="w-10 h-10 lg:w-12 lg:h-12 bg-sage-green/10 rounded-xl flex items-center justify-center">
-                      <svg className="w-5 h-5 lg:w-6 lg:h-6 text-sage-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Previous Experience */}
-                <div className="bg-sage-green/5 rounded-2xl p-4 lg:p-5 border border-sage-green/20">
-                  <div className="text-xs font-semibold text-sage-green uppercase tracking-wider mb-3">Previous Experience</div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-slate-900 text-sm">EY-Parthenon</span>
-                      <span className="text-xs text-slate-600">Strategy Summer Associate</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-slate-900 text-sm">Canadian Imperial Bank of Commerce</span>
-                      <span className="text-xs text-slate-600">AI Strategy Intern</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-slate-900 text-sm">Will&apos;s Tutoring</span>
-                      <span className="text-xs text-slate-600">Founder</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Projects CTA */}
-                <div className="hidden lg:flex items-center gap-2 text-slate-500 pt-2 pl-2">
-                  <span className="text-sm">Check out my case studies</span>
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                <div
+                  className="grid"
+                  style={{
+                    gridTemplateColumns: '50px 160px auto',
+                    gap: '0 1.25rem',
+                    rowGap: '0.45rem',
+                  }}
+                >
+                  {experience.map((exp) => (
+                    <React.Fragment key={exp.company}>
+                      <span className="text-sage-green" style={{ fontSize: 12, fontVariantNumeric: 'tabular-nums' }}>
+                        {exp.year}
+                      </span>
+                      <span style={{ fontSize: 13, fontWeight: 600, color: '#1e293b' }}>
+                        {exp.company}
+                      </span>
+                      <span style={{ fontSize: 12, color: '#64748b' }}>
+                        {exp.role}
+                      </span>
+                    </React.Fragment>
+                  ))}
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Right Column: Stacked Case Study Cards */}
-            <div>
-              {/* Section header - mobile only */}
-              <div className="lg:hidden text-xs font-semibold text-slate-500 uppercase tracking-wider mb-6">
-                Case Studies
-              </div>
-              
-              {/* Stacked cards */}
-              <div className="animate-fade-in-up delay-300">
-                {/* Card Stack Container */}
-                <div className="flex justify-center pt-52 lg:pt-48 pb-4">
-                  <div 
-                    className="relative"
-                    style={{ 
-                      width: 'min(240px, 65vw)', 
-                      height: 'min(320px, 85vw)',
+          {/* Section divider + label */}
+          <div style={{ marginTop: '3rem', padding: '0 3rem' }}>
+            <div style={{ borderTop: '1px solid rgba(0,0,0,0.06)' }} />
+            <h2 className="text-sage-green" style={{
+              marginTop: '1rem',
+              marginBottom: '1.5rem',
+              fontSize: 19,
+              fontWeight: 600,
+              textAlign: 'center',
+            }}>
+              Projects & Case Studies
+            </h2>
+          </div>
+
+          {/* Project list */}
+          <div style={{ paddingBottom: '4rem', padding: '0 3rem 4rem 3rem' }}>
+            {projects.map((project, i) => {
+              const isLast = i === projects.length - 1
+              const isHovered = hoveredRow === project.id
+              return (
+                <Link
+                  key={project.id}
+                  href={project.href}
+                  className="block"
+                  onMouseEnter={() => setHoveredRow(project.id)}
+                  onMouseLeave={() => setHoveredRow(null)}
+                  style={{
+                    opacity: 0,
+                    animation: `fadeInUp 0.5s ease-out ${0.1 + i * 0.05}s forwards`,
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      padding: '1.25rem 12px',
+                      borderBottom: isLast ? 'none' : '1px solid rgba(0,0,0,0.06)',
+                      transition: 'background-color 0.2s ease',
+                      backgroundColor: isHovered ? 'rgba(168,198,162,0.06)' : 'transparent',
+                      marginLeft: -12,
+                      marginRight: -12,
+                      borderRadius: 6,
                     }}
                   >
-                    {caseStudies.map((study, index) => {
-                      const style = getCardStyle(index)
-                      
-                      return (
-                        <Link
-                          key={study.id}
-                          href={study.href}
-                          onClick={(e) => {
-                            if (study.href === '#') {
-                              e.preventDefault()
-                            }
-                          }}
-                          className="absolute inset-0 group cursor-pointer"
-                          style={{
-                            transform: style.transform,
-                            transformOrigin: 'center bottom',
-                            zIndex: style.zIndex,
-                            transition: 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease',
-                          }}
-                          onMouseEnter={(e) => {
-                            const el = e.currentTarget as HTMLElement
-                            const position = getCardPosition(index)
-                            el.style.transform = `${style.transform} scale(1.03)`
-                            if (position === 0) {
-                              el.style.zIndex = '150'
-                            }
-                          }}
-                          onMouseLeave={(e) => {
-                            const el = e.currentTarget as HTMLElement
-                            el.style.transform = style.transform
-                            el.style.zIndex = String(style.zIndex)
-                          }}
-                        >
-                          <div 
-                            className={`
-                              ${study.bgColor} 
-                              rounded-2xl p-5 w-full h-full 
-                              flex flex-col justify-between 
-                              transition-shadow duration-300
-                              shadow-2xl
-                            `}
-                            style={{
-                              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 12px 24px -8px rgba(0, 0, 0, 0.3)',
-                            }}
-                          >
-                            {/* Top: Title */}
-                            <div>
-                              <h3 className={`text-lg lg:text-xl font-bold ${study.textColor} leading-tight`}>
-                                {study.title}
-                              </h3>
-                            </div>
-                            
-                            {/* Bottom: Tag + CTA */}
-                            <div>
-                              {study.year && (
-                                <span className={`text-xs font-medium ${study.textColor} opacity-70 uppercase tracking-wider`}>
-                                  Project · {study.year}
-                                </span>
-                              )}
-                              {study.href !== '#' && (
-                                <div className={`flex items-center gap-2 ${study.textColor} font-medium group-hover:gap-3 transition-all mt-3`}>
-                                  <span className="text-sm">Read Write-Up</span>
-                                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                  </svg>
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        </Link>
-                      )
-                    })}
+                    <div style={{
+                      transition: 'transform 0.2s ease',
+                      transform: isHovered ? 'translateX(3px)' : 'translateX(0)',
+                    }}>
+                      <h3 style={{
+                        fontSize: 17,
+                        fontWeight: 600,
+                        color: '#1e293b',
+                        lineHeight: 1.3,
+                        letterSpacing: '-0.01em',
+                      }}>
+                        {project.title}
+                      </h3>
+                      <span className="text-sage-green" style={{
+                        fontSize: 12,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.08em',
+                        marginTop: 4,
+                        display: 'inline-block',
+                      }}>
+                        {project.tag}
+                      </span>
+                    </div>
+                    <span
+                      style={{
+                        fontSize: 13,
+                        fontWeight: 500,
+                        color: isHovered ? '#2E4C3C' : '#A8C6A2',
+                        border: `1px solid ${isHovered ? '#A8C6A2' : 'rgba(168,198,162,0.3)'}`,
+                        padding: '0.4rem 1rem',
+                        borderRadius: 9999,
+                        whiteSpace: 'nowrap',
+                        transition: 'all 0.2s ease',
+                        flexShrink: 0,
+                        marginLeft: '1.5rem',
+                      }}
+                    >
+                      Read <span style={{
+                        display: 'inline-block',
+                        transition: 'transform 0.2s ease',
+                        transform: isHovered ? 'translateX(3px)' : 'translateX(0)',
+                      }}>&rarr;</span>
+                    </span>
                   </div>
-                </div>
-
-                {/* Arrow Navigation */}
-                <div className="flex justify-center items-center gap-6 mt-4">
-                  <button
-                    onClick={goToPrev}
-                    className="w-9 h-9 rounded-full border-2 border-slate-300 flex items-center justify-center hover:border-sage-green hover:text-sage-green transition-colors text-slate-400"
-                    aria-label="Previous card"
-                  >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                  
-                  {/* Position indicator */}
-                  <div className="flex gap-2">
-                    {caseStudies.map((_, index) => (
-                      <div
-                        key={index}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                          getCardPosition(index) === 0 ? 'bg-sage-green' : 'bg-slate-300'
-                        }`}
-                      />
-                    ))}
-                  </div>
-
-                  <button
-                    onClick={goToNext}
-                    className="w-9 h-9 rounded-full border-2 border-slate-300 flex items-center justify-center hover:border-sage-green hover:text-sage-green transition-colors text-slate-400"
-                    aria-label="Next card"
-                  >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </main>
