@@ -32,7 +32,7 @@ const projects = [
     id: 'duolingo',
     title: 'Reimagining Streak Loss: A Duolingo Feature Concept',
     tag: 'CASE STUDY · 2025',
-    href: '#',
+    href: '/duolingo',
   },
 ]
 
@@ -210,7 +210,7 @@ export default function LandingPage() {
           </div>
 
           {/* Section divider + label */}
-          <div style={{ marginTop: '3rem', padding: '0 3rem' }}>
+          <div style={{ marginTop: '3rem', padding: '0 3rem', opacity: 0, animation: 'fadeInUp 0.8s ease-out 0.4s both' }}>
             <div style={{ borderTop: '1px solid rgba(0,0,0,0.06)' }} />
             <h2 className="text-sage-green" style={{
               marginTop: '1rem',
@@ -237,7 +237,7 @@ export default function LandingPage() {
                   onMouseLeave={() => setHoveredRow(null)}
                   style={{
                     opacity: 0,
-                    animation: `fadeInUp 0.5s ease-out ${0.1 + i * 0.05}s forwards`,
+                    animation: `fadeInUp 0.5s ease-out ${0.5 + i * 0.05}s both`,
                   }}
                 >
                   <div
