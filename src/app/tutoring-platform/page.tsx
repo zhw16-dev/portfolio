@@ -117,7 +117,7 @@ export default function TutoringPlatformPage() {
                 <span className="text-sage-green"> Scheduling, Payments, and Escalations</span>
               </h1>
               <p className="text-xl text-slate-600 leading-relaxed max-w-3xl">
-                Building a role-based platform to eliminate the operational chaos of managing 10 tutors and 100+ students.
+                How I built a role-based platform to take myself out of the middle of my own business.
               </p>
             </div>
 
@@ -152,17 +152,17 @@ export default function TutoringPlatformPage() {
             
             <div className="prose prose-lg max-w-none mb-10">
               <p className="text-slate-600 leading-relaxed mb-6">
-                I started tutoring in 9th grade. By the time I graduated, I was managing 10 tutors 
-                and over 100 students. What started as a side hustle had become a real business.
+                I started tutoring in 9th grade, and by the time I graduated I was managing 10 tutors
+                and over 100 students. What started as helping a few friends with math had quietly
+                turned into a real business with real operational overhead.
               </p>
               <p className="text-slate-600 leading-relaxed mb-6">
-                With that scale came a coordination nightmare. I was manually matching tutors to students, 
-                coordinating schedules across time zones, tracking payments in spreadsheets, and fielding 
-                calls constantly. By 2025, despite stepping back from teaching, I was spending 6+ hours 
-                a week on pure operations.
-              </p>
-              <p className="text-slate-600 leading-relaxed">
-                September was supposed to be growth season. Instead, I was drowning in logistics.
+                The problem was that everything flowed through me. Matching tutors to students,
+                coordinating schedules across time zones, tracking payments in spreadsheets, fielding
+                calls from parents. By 2025, even though I had stepped back from teaching entirely,
+                I was still spending 6+ hours a week on pure coordination. September came around and
+                instead of focusing on growing the business, I was stuck updating spreadsheets and
+                chasing down e-transfers.
               </p>
             </div>
 
@@ -181,9 +181,9 @@ export default function TutoringPlatformPage() {
                 </div>
                 
                 {/* Me (center) */}
-                <div className="bg-red-50 rounded-lg p-5 border border-red-200">
-                  <h4 className="font-medium text-red-800 mb-3">Me (The Bottleneck)</h4>
-                  <ul className="text-sm text-red-700 space-y-2">
+                <div className="bg-slate-100 rounded-lg p-5 border border-slate-300">
+                  <h4 className="font-medium text-slate-800 mb-3">Me (The Bottleneck)</h4>
+                  <ul className="text-sm text-slate-600 space-y-2">
                     <li>• Manual tutor matching</li>
                     <li>• Spreadsheet updates</li>
                     <li>• Payment chasing</li>
@@ -213,8 +213,9 @@ export default function TutoringPlatformPage() {
             
             <div className="prose prose-lg max-w-none mb-8">
               <p className="text-slate-600 leading-relaxed mb-6">
-                I knew the business inside and out, but I wanted to validate my assumptions. I scheduled 
-                calls with parents and students, and ran a focus group with my tutors. A few insights stood out:
+                I knew the business well enough to have strong opinions about what to build, but I wanted to
+                check those against what people actually cared about. I talked to a handful of parents and
+                students, and ran a group call with my tutors. A few things kept coming up:
               </p>
             </div>
 
@@ -242,68 +243,74 @@ export default function TutoringPlatformPage() {
 
             <div className="prose prose-lg max-w-none mb-8">
               <h3 className="text-xl font-semibold text-slate-900 mb-4">
-                The Core Idea: A Single Source of Truth
+                One Platform, Three Dashboards
               </h3>
               <p className="text-slate-600 leading-relaxed mb-6">
-                Instead of managing multiple spreadsheets and constant messages, I would build one platform 
-                where each user type gets exactly what they need. Role-based access would replace manual gatekeeping.
+                The common thread was that everyone wanted to see their own information without having to
+                go through me. So the idea became straightforward: one platform where each user type
+                gets a dashboard tailored to their role, and I stop being the middleman for every small request.
               </p>
             </div>
 
-            {/* Admin Dashboard Mockup */}
-            <div className="bg-white border border-slate-200 rounded-xl p-6">
-              <div className="bg-slate-50 rounded-lg p-6">
-                {/* Dashboard Header */}
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
-                  <div>
-                    <h4 className="font-semibold text-slate-900">Operations Overview</h4>
-                    <p className="text-sm text-slate-500">Will&apos;s Tutoring</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-sage-green rounded-full"></div>
-                    <span className="text-sm text-slate-600">Live</span>
-                  </div>
-                </div>
-                
-                {/* Metrics Row */}
-                <div className="grid grid-cols-4 gap-4 mb-6">
-                  <div className="bg-white p-4 rounded-lg text-center border border-slate-200">
-                    <div className="text-2xl font-bold text-sage-green">23</div>
-                    <div className="text-xs text-slate-600">Sessions This Week</div>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg text-center border border-slate-200">
-                    <div className="text-2xl font-bold text-slate-700">8</div>
-                    <div className="text-xs text-slate-600">Active Tutors</div>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg text-center border border-slate-200">
-                    <div className="text-2xl font-bold text-slate-700">$2.4k</div>
-                    <div className="text-xs text-slate-600">Pending Payments</div>
-                  </div>
-                  <div className="bg-white p-4 rounded-lg text-center border border-slate-200">
-                    <div className="text-2xl font-bold text-slate-700">3</div>
-                    <div className="text-xs text-slate-600">Action Items</div>
-                  </div>
-                </div>
-
-                {/* Recent Sessions */}
-                <div className="space-y-2">
-                  <div className="bg-white p-3 rounded border-l-4 border-sage-green flex justify-between items-center">
-                    <div>
-                      <div className="font-medium text-slate-900 text-sm">Alex Chen - Calculus</div>
-                      <div className="text-xs text-slate-500">with Sarah M. • Today 4:00 PM</div>
+            {/* Role-Based Dashboard Preview */}
+            <div className="bg-slate-50 rounded-xl p-8 mb-2">
+              <h3 className="text-sm font-semibold text-slate-900 mb-6 text-center">What Each User Sees</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="bg-white rounded-lg p-5 border border-slate-200">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-7 h-7 bg-sage-green/10 rounded-full flex items-center justify-center">
+                      <span className="text-sage-green text-xs font-semibold">S</span>
                     </div>
-                    <span className="bg-sage-green/10 text-sage-green text-xs px-2 py-1 rounded">Confirmed</span>
+                    <h4 className="font-medium text-slate-900">Student</h4>
                   </div>
-                  <div className="bg-white p-3 rounded border-l-4 border-amber-400 flex justify-between items-center">
-                    <div>
-                      <div className="font-medium text-slate-900 text-sm">Emma Wilson - Physics</div>
-                      <div className="text-xs text-slate-500">with James K. • Tomorrow 5:30 PM</div>
+                  <p className="text-sm text-slate-600">
+                    Browse tutors by subject, book sessions through Calendly links,
+                    and track upcoming appointments and payment status in one place.
+                  </p>
+                </div>
+                <div className="bg-white rounded-lg p-5 border border-slate-200">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-7 h-7 bg-sage-green/10 rounded-full flex items-center justify-center">
+                      <span className="text-sage-green text-xs font-semibold">T</span>
                     </div>
-                    <span className="bg-amber-50 text-amber-700 text-xs px-2 py-1 rounded">Pending</span>
+                    <h4 className="font-medium text-slate-900">Tutor</h4>
                   </div>
+                  <p className="text-sm text-slate-600">
+                    See assigned students, log completed sessions, and track earnings
+                    and pending payouts, without seeing other tutors&apos; data.
+                  </p>
+                </div>
+                <div className="bg-white rounded-lg p-5 border border-slate-200">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-7 h-7 bg-sage-green/10 rounded-full flex items-center justify-center">
+                      <span className="text-sage-green text-xs font-semibold">A</span>
+                    </div>
+                    <h4 className="font-medium text-slate-900">Admin</h4>
+                  </div>
+                  <p className="text-sm text-slate-600">
+                    Full operations view: session volume, revenue tracking, outstanding
+                    payments, tutor management, and items needing attention.
+                  </p>
                 </div>
               </div>
-              <p className="text-center text-sm text-slate-400 mt-4 italic">Mockup of the admin dashboard</p>
+            </div>
+
+            {/* Demo CTA */}
+            <div className="text-center mt-6">
+              <a
+                href="https://tutoringdemo.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-sage-green text-white px-6 py-3 rounded-lg hover:bg-sage-green/90 transition-colors font-medium"
+              >
+                Explore the Live Demo
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+              <p className="text-sm text-slate-400 mt-3">
+                Interactive demo with all three role views — resets on refresh
+              </p>
             </div>
           </section>
 
@@ -313,13 +320,16 @@ export default function TutoringPlatformPage() {
             
             <div className="prose prose-lg max-w-none mb-8">
               <p className="text-slate-600 leading-relaxed mb-6">
-                I chose Next.js for the frontend and Supabase for the backend. Both have generous free 
-                tiers and would scale if needed. Three weekends to ship.
+                I went with Next.js and Supabase, mostly because both have generous free tiers and
+                I didn&apos;t want to spend money on infrastructure for something that might not work.
+                The harder part was figuring out what <em>not</em> to build.
               </p>
               <p className="text-slate-600 leading-relaxed mb-6">
-                I initially wanted to build everything: my own scheduling system, payment processing, analytics. 
-                But as a solo developer on a deadline, I scoped down. I kept Calendly for scheduling and made 
-                payments tracking-only. The goal was eliminating my bottleneck, not building a complete SaaS product.
+                I originally wanted to build everything from scratch: scheduling, payment processing,
+                analytics. But I had to keep reminding myself that the goal was to stop being the
+                bottleneck, not to build a SaaS product. So I kept Calendly for scheduling and made
+                payments tracking-only. Cutting scope was painful in the moment, but it&apos;s the only
+                reason I shipped in three weekends instead of three months.
               </p>
             </div>
 
@@ -336,13 +346,14 @@ export default function TutoringPlatformPage() {
                     <span className="text-xs text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Weekend 1</span>
                   </div>
                   <p className="text-sm text-slate-600 mb-4">
-                    After completing user interviews, I mapped out user journeys and determined the critical path. 
-                    Set up the database schema with role-based access in mind from day one. This decision saved 
-                    countless hours later.
+                    After talking to everyone, I mapped out the user journeys and started on the database
+                    schema. I decided early on to build role-based access into the data layer itself
+                    using Supabase&apos;s Row Level Security, so that tutors could see student contact info
+                    but not payment details, and parents could only see their own children.
                   </p>
                   <p className="text-sm text-slate-600 mb-4">
-                    I chose Supabase&apos;s Row Level Security (RLS) so users could only see data relevant to their role. 
-                    Tutors see student contact info but not payment details. Parents see their own children only.
+                    This was one of those decisions that felt like overkill at the time but saved me a
+                    lot of headaches later.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">User Research</span>
@@ -363,14 +374,14 @@ export default function TutoringPlatformPage() {
                     <span className="text-xs text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Weekend 2</span>
                   </div>
                   <p className="text-sm text-slate-600 mb-4">
-                    Built authentication, tutor profiles, student management, and session logging. The auth flow 
-                    alone took longer than expected. Handling edge cases like password resets, email verification, 
-                    and session expiry added up.
+                    Built out auth, tutor profiles, student management, and session logging. Auth alone
+                    took longer than I expected due to password resets, email verification, session expiry.
+                    All things I hadn&apos;t really thought about until I was in the middle of building them.
                   </p>
                   <p className="text-sm text-slate-600 mb-4">
-                    Testing with 3 tutors immediately revealed gaps. They needed granular permissions I had not 
-                    considered: access to student contact info for scheduling, but not payment history. Information 
-                    architecture decisions directly impact user trust.
+                    I got three tutors to test it and immediately found gaps. They needed to see student
+                    contact info for scheduling, but I hadn&apos;t separated that from payment history. Small
+                    things like that matter a lot when people are trusting you with their data.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Auth Flow</span>
@@ -392,14 +403,14 @@ export default function TutoringPlatformPage() {
                     <span className="text-xs text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Weekend 3</span>
                   </div>
                   <p className="text-sm text-slate-600 mb-4">
-                    Mobile responsiveness, onboarding flows, edge case handling. This phase took as much time 
-                    as building core features, and that surprised me. What about cancellations? No-shows? 
-                    Rescheduling conflicts?
+                    This was supposed to be the quick polish phase for mobile responsiveness, onboarding
+                    flows, cleaning things up. It ended up taking just as long as building the core
+                    features. Cancellations, no-shows, rescheduling conflicts... all the things that
+                    don&apos;t show up on a feature list but are actually what people remember about using
+                    your product.
                   </p>
                   <p className="text-sm text-slate-600 mb-4">
-                    These &quot;exceptions&quot; are actually core to how users perceive the product. Handling them 
-                    gracefully matters more than feature count. Deployed to Vercel, onboarded all tutors 
-                    in a group call, and went live.
+                    Deployed to Vercel, onboarded all the tutors on a group call, and went live.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Responsive</span>
@@ -417,48 +428,59 @@ export default function TutoringPlatformPage() {
             <h2 className="text-xs font-semibold text-sage-green uppercase tracking-wide mb-6">Reflection</h2>
             
             <div className="prose prose-lg max-w-none mb-10">
+              <p className="text-slate-600 leading-relaxed mb-6">
+                A month in, the platform was running smoothly with almost no intervention from me.
+                I went from 6 hours of weekly admin to about 15 minutes. But honestly, the operational
+                time savings weren&apos;t the most interesting part.
+              </p>
               <p className="text-slate-600 leading-relaxed">
-                A month later, the platform runs smoothly with minimal intervention. I went from 6 hours 
-                of weekly admin to about 15 minutes. More importantly, I learned things that will stick with me.
+                This project also raised a bigger question for me: if a platform could take me from 6 hours
+                to 15 minutes, what would it take to go from 100 students to 1,000? That line of
+                thinking became the <a href="/ai-prototype" className="text-sage-green hover:underline font-medium">AI-native prototype</a> I
+                built next.
               </p>
             </div>
 
             {/* Key Learnings - 2x2 Grid */}
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white border border-slate-200 rounded-lg p-6">
-                <h3 className="font-semibold text-slate-900 mb-3">Scope ruthlessly</h3>
+                <h3 className="font-semibold text-slate-900 mb-3">Scope is the whole game</h3>
                 <p className="text-sm text-slate-600">
-                  I wanted to build everything: scheduling, payments, analytics. But the right solution 
-                  for context is not the perfect solution. Keeping Calendly and tracking payments manually 
-                  let me ship in 3 weeks instead of 3 months.
+                  I wanted to build my own scheduling system and payment processing, but keeping
+                  Calendly and making payments tracking-only is the only reason this shipped in
+                  three weekends. The right solution for the context isn&apos;t the perfect
+                  solution but the one that actually exists.
                 </p>
               </div>
 
               <div className="bg-white border border-slate-200 rounded-lg p-6">
-                <h3 className="font-semibold text-slate-900 mb-3">Edge cases define the experience</h3>
+                <h3 className="font-semibold text-slate-900 mb-3">Edge cases are the product</h3>
                 <p className="text-sm text-slate-600">
-                  The happy path was easy. What about cancellations? No-shows? Payment disputes? These 
-                  &quot;exceptions&quot; are actually core to how users perceive the product. Handling them gracefully 
-                  took as much effort as building the main features.
+                  Nobody remembers a session that went smoothly. They remember the cancellation
+                  that was handled poorly or the payment that seemed to disappear. I spent most
+                  of weekend three on these &quot;exceptions&quot; and they ended up being the most
+                  important part to get right.
                 </p>
               </div>
 
               <div className="bg-white border border-slate-200 rounded-lg p-6">
-                <h3 className="font-semibold text-slate-900 mb-3">Ship fast, learn faster</h3>
+                <h3 className="font-semibold text-slate-900 mb-3">Building teaches you faster than planning</h3>
                 <p className="text-sm text-slate-600">
-                  I learned more in three weekends of building than months of planning ever could have 
-                  taught me. A working product today helps users more than perfect code next month. 
-                  The tight feedback loop of build, test with real users, iterate was everything.
+                  I learned more in three weekends of building than months of planning could
+                  have taught me. The permission gaps my tutors found, the edge cases I never
+                  anticipated, none of that shows up in a spec doc. You only find it by
+                  putting something real in front of people.
                 </p>
               </div>
 
               <div className="bg-white border border-slate-200 rounded-lg p-6">
-                <h3 className="font-semibold text-slate-900 mb-3">AI collapsed the gap</h3>
+                <h3 className="font-semibold text-slate-900 mb-3">AI closed the gap</h3>
                 <p className="text-sm text-slate-600">
-                  As a business student, I could wireframe and spec features. But actually shipping code 
-                  felt out of reach. Tools like Claude Code changed that. Debugging became a teaching 
-                  moment, not a blocker. The gap between &quot;I wish this worked differently&quot; and &quot;I fixed it&quot; 
-                  collapsed to hours.
+                  As a business student, I could wireframe and spec features all day, but
+                  actually shipping code felt out of reach. Tools like Claude Code changed that.
+                  The gap between &quot;I wish this worked differently&quot; and &quot;I just
+                  fixed it&quot; collapsed to hours, and debugging became something I learned
+                  from rather than got stuck on.
                 </p>
               </div>
             </div>
